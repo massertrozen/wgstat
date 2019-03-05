@@ -1,19 +1,40 @@
 <?php
-if (isset($_POST["statistics_all"])) {
-    // statitics: info, all, tanks, achievents;
-    $account_info = json_decode($_POST["statistics_all"]);
+if (isset($_POST["account_info"])) {
+    // statitics: info, all, tanks, achievements, max_series, clan, wgn_accounts;
+    $account_info = json_decode($_POST["account_info"]);
     $statistics_all = $account_info->statistics->all; 
     $tanks_stat = $account_info->tanks_stat;
     $tanks_encyclopedia = $account_info->tanks_encyclopedia;
     $achievements = $account_info->achievements;
     $account_achievements = $achievements->achievements;
     $account_max_series = $achievements->max_series;
+    $clan_info = $account_info->clan_info;  
+    $clan_glossary = $account_info->glossary;
+    $wgn_accounts = $account_info->wgn_accounts;
+    $wgn_games = array("wot" => "World of Tanks", "wows" => "World of Warships", "wotb" => "World of Tanks Blitz", "wowp" => "World of Warplanes");
+    $wgn_servers = $account_info->wgn_servers;
 
     // info;
     $nickname = $account_info->nickname;
     $created_at = date("d.m.Y H:i:s", $account_info->created_at);
     $updated_at = date("d.m.Y H:i:s", $account_info->updated_at);
     $last_battle_time = date("d.m.Y H:i:s", $account_info->last_battle_time);
+
+    // clan;
+    if (count($clan_info) > 0) {
+        $clan_id = $clan_info->id;
+        $clan_role = $clan_info->role;
+        $clan_role_normal = $clan_glossary->$clan_role;
+        $clan_joined_at = $clan_info->joined_at;
+        $clan_name = $clan_info->name;
+        $clan_members_count = $clan_info->members_count;
+        $clan_created_at = date("d.m.Y H:i:s", $clan_info->created_at);
+        $clan_leader_name = $clan_info->leader_name;
+        $clan_tag = $clan_info->tag;
+        $clan_motto = $clan_info->motto;
+        $clan_description = $clan_info->description;
+        $clan_days_joined = round((time() - $clan_joined_at) / 86400);
+    }
 
     // all;
     $spotted = $statistics_all->spotted;
@@ -96,13 +117,33 @@ if (isset($_POST["statistics_all"])) {
     $WN6 = round((1240 - 1040 / pow(min($avg_tier, 6), 0.164)) * $avg_frags + $avg_damage_dealt * 530 / (184 * exp(0.24 * $avg_tier) + 130) + $avg_spotted * 125 + min($avg_dropped_capture, 2.2) * 100 + ((185 / (0.17 + exp(($wins_percent - 35) * -0.134))) - 500) * 0.45 + (6 - min($avg_tier, 6)) * -60, 2);
     $WN7 = round((1240 - 1040 / (pow(min($avg_tier, 6), 0.164))) * $avg_frags + $avg_damage_dealt * 530 / (184 * exp(0.24 * $avg_tier) + 130) + $avg_spotted * 125 * min($avg_tier, 3) / 3 + min($avg_dropped_capture, 2.2) * 100 + ((185 / (0.17 + exp((($wins_percent) - 35) * -0.134))) - 500) * 0.45 + (-1 * (((5 - min($avg_tier, 5)) * 125) / (1 + exp(($avg_tier - ($battles / 220^(3 / $avg_tier))) * 1.5)))), 2);
     
+    echo "Сервера:<br>";
+    foreach ($wgn_servers as $server_info) {
+        echo $server_info->server.": ".$server_info->players_online."<br>";
+    }
 
+    echo "<hr>Играет в:<br>";
+    foreach ($wgn_accounts as $game) {
+        echo "<button class='switch-game' to='".$game."'>".$wgn_games[$game]."</button><br>";
+    }
 echo<<<HERE
+<hr>
 <table>
     <tr><td>Ник<td> <td>$nickname</td></tr>
     <tr><td>Зарегистрирован<td> <td>$created_at</td></tr>
     <tr><td>Обновлено<td> <td>$updated_at</td></tr>
     <tr><td>Последний раз был в бою<td> <td>$last_battle_time</td></tr>
+    <tr><td>---</td></tr>
+    <tr><td>Клан</td> <td>[$clan_tag]</td></tr>
+    <tr><td>Звание</td> <td>$clan_role_normal</td></tr>
+    <tr><td>Дней в клане</td> <td>$clan_days_joined</td></tr>
+    <tr><td>---</td></tr>
+    <tr><td>Клан</td> <td>$clan_name [$clan_tag]</td></tr>
+    <tr><td>Создан</td> <td>$clan_created_at</td></tr>
+    <tr><td>Лидер</td> <td>$clan_leader_name</td></tr>
+    <tr><td>Девиз</td> <td>$clan_motto</td></tr>
+    <tr><td>Описание</td> <td>$clan_description</td></tr>
+    <tr><td>Игроков в клане</td> <td>$clan_members_count</td></tr>
     <tr><td>---</td></tr>
     <tr><td>КПД</td> <td>$KPD<td></tr>
     <tr><td>WN6</td> <td>$WN6<td></tr>
@@ -184,3 +225,51 @@ echo "</table>";
 
 }
 ?>
+
+<hr>
+
+<button class="find-new-user">Найти другого</button>
+
+<script>
+    $(".find-new-user").click(function() {
+        $.removeCookie("nickname");
+        $.removeCookie("game");
+        location.reload();
+    });
+
+    $(".switch-game").click(function() {
+        let game = $(this).attr("to");
+        let nickname = $.cookie('nickname');
+        $.cookie("game", game, { expires: 1, path: "/"});
+
+        switch (game) {
+            case "wot":
+                $.post("../helpers/wot_account_info.php", { search: nickname })
+                .done(function(response) {
+                    $(".main-container").load("../pages/wot_account_info.php", { account_info: response });
+                });
+                break;
+    
+            case "wows":
+                $.post("../helpers/wows_account_info.php", { search: nickname })
+                .done(function(response) {
+                    $(".main-container").load("../pages/wows_account_info.php", { account_info: response });
+                });
+                break;
+    
+            case "wotb":
+                $.post("../helpers/wotb_account_info.php", { search: nickname })
+                .done(function(response) {
+                    $(".main-container").load("../pages/wotb_account_info.php", { account_info: response });
+                });
+                break;
+    
+            case "wowp":
+                $.post("../helpers/wowp_account_info.php", { search: nickname })
+                .done(function(response) {
+                    $(".main-container").load("../pages/wowp_account_info.php", { account_info: response });
+                });
+                break;
+        }
+    });
+</script>
