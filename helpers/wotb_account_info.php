@@ -32,10 +32,10 @@ if (isset($_POST["search"])) {
 
         $clan_info = [];
         $clans_accountinfo_response = json_decode(grab("$url_wotb_clans_accountinfo?application_id=$application_id&account_id=$account_id"), true);
-        $clan_id = $clans_accountinfo_response["data"][$account_id][clan_id];
+        $clan_id = $clans_accountinfo_response["data"][$account_id]["clan_id"];
         if (isset($clan_id)) {
-            $clan_role = $clans_accountinfo_response["data"][$account_id][role];
-            $clan_joined_at = $clans_accountinfo_response["data"][$account_id][joined_at];
+            $clan_role = $clans_accountinfo_response["data"][$account_id]["role"];
+            $clan_joined_at = $clans_accountinfo_response["data"][$account_id]["joined_at"];
 
             $clans_info_response = json_decode(grab("$url_wotb_clans_info?application_id=$application_id&clan_id=$clan_id"), true);
             $clan_name = $clans_info_response["data"][$clan_id]["name"];
@@ -67,7 +67,7 @@ if (isset($_POST["search"])) {
         + array("clan_info" => $clan_info)
         + array("glossary" => $glossary_response["data"]["clans_roles"])
         + array("wgn_accounts" => $wgn_accounts_response["data"][$account_id]["games"])
-        + array("wgn_servers" => $wgn_servers_response["data"]["wot"]);
+        + array("wgn_servers" => $wgn_servers_response["data"]["wotb"]);
 
         echo json_encode($statistics_all);
     } else echo json_encode(array("error" => "Such user`s nickname not found."));

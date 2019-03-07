@@ -17,6 +17,7 @@ if (isset($_POST["account_info"])) {
     // info;
     $nickname = $account_info->nickname;
     $created_at = date("d.m.Y H:i:s", $account_info->created_at);
+    $created_days = round((time() - $created_at) / 86400);
     $updated_at = date("d.m.Y H:i:s", $account_info->updated_at);
     $last_battle_time = date("d.m.Y H:i:s", $account_info->last_battle_time);
 
@@ -130,7 +131,7 @@ echo<<<HERE
 <hr>
 <table>
     <tr><td>Ник<td> <td>$nickname</td></tr>
-    <tr><td>Зарегистрирован<td> <td>$created_at</td></tr>
+    <tr><td>Зарегистрирован<td> <td>$created_at ($created_days дн.)</td></tr>
     <tr><td>Обновлено<td> <td>$updated_at</td></tr>
     <tr><td>Последний раз был в бою<td> <td>$last_battle_time</td></tr>
     <tr><td>---</td></tr>
@@ -192,7 +193,7 @@ echo<<<HERE
 
 HERE;
 echo "<table>";
-echo "<tr><td>Уровень</td> <td>Танк</td> <td>Бои</td> <td>Победы</td> <td>Урон</td> <td>Ср.опыт</td></tr>";
+echo "<tr><td>Уровень</td> <td>Танк</td> <td>Мастерство</td> <td>Бои</td> <td>Победы</td> <td>Урон</td> <td>Ср.опыт</td></tr>";
     foreach ($tanks_stat as $tank) {
         $tank_id = $tank->tank_id;
         $tank_tier = $tanks_tiers[$tank_id] ? $tanks_tiers[$tank_id] : "<i>hidden</i>";
@@ -204,8 +205,9 @@ echo "<tr><td>Уровень</td> <td>Танк</td> <td>Бои</td> <td>Побе
         $tank_avg_damage_dealt = round($tank_damage_dealt / $tank_battles);
         $tank_xp = $tank->all->xp;
         $tank_avg_xp = round($tank_xp / $tank_battles);
+        $tank_mark_of_mastery = $tank->mark_of_mastery;
 
-        echo "<tr><td>$tank_tier</td> <td>$tank_name</td> <td>$tank_battles</td> <td>$tank_wins_percent %</td> <td>$tank_avg_damage_dealt</td> <td>$tank_avg_xp</td></tr>";
+        echo "<tr><td>$tank_tier</td> <td>$tank_name</td> <td>$tank_mark_of_mastery</td> <td>$tank_battles</td> <td>$tank_wins_percent %</td> <td>$tank_avg_damage_dealt</td> <td>$tank_avg_xp</td></tr>";
     }
 echo "</table><hr>";
 

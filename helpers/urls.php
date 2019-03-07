@@ -2,7 +2,14 @@
 $application_id = "85ef22379a59f6a0dba28174be9a0902";
 
 // wot;
+$url_wot_account_list = "https://api.worldoftanks.ru/wot/account/list/";
 $url_wot_account_info = "https://api.worldoftanks.ru/wot/account/info/";
+$url_wot_tanks_stat = "https://api.worldoftanks.ru/wot/tanks/stats/";
+$url_wot_encyclopedia = "https://api.worldoftanks.ru/wot/encyclopedia/vehicles/";
+$url_wot_account_achievements = "https://api.worldoftanks.ru/wot/account/achievements/";
+$url_wot_clans_accountinfo = "https://api.worldoftanks.ru/wot/clans/accountinfo/";
+$url_wot_clans_info = "https://api.worldoftanks.ru/wot/clans/info/";
+$url_wot_glossary = "https://api.worldoftanks.ru/wot/clans/glossary/";
 
 // wotb;
 $url_wotb_account_list = "https://api.wotblitz.ru/wotb/account/list/";
