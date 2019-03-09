@@ -1,5 +1,6 @@
 <?php
 require_once("../helpers/grabber.php");
+require_once("../helpers/config.php");
 require_once("../helpers/urls.php");
 
 if (isset($_POST["search"])) {

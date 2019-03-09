@@ -101,9 +101,7 @@ if (isset($_POST["account_info"])) {
     $hits_percent_rounded = round($hits_percent, 2);
     $survival_percent = $survived_battles / $battles * 100;
     $survival_percent_rounded = round($survival_percent, 2);
-    $avg_damage_received = round($damage_received / $battles);    
-    $solo_wins = $wins - $joint_victory;
-    $joint_victory_percent = round($joint_victory / $wins * 100, 2);
+    $avg_damage_received = round($damage_received / $battles);
     $avg_shots = round($shots / $battles, 2);
     $avg_hits = round($hits / $battles, 2);
     $avg_piercings = round($piercings / $battles, 2);

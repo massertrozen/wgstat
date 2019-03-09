@@ -12,7 +12,7 @@ $url_game_account_info = array(
 if (isset($_POST["search"])) {
     $nickname = $_POST["search"];
 
-    $wgn_account_list_response = json_decode(grab("$url_wgn_account_list?application_id=$application_id&search=$nickname&limit=1"), true);
+    $wgn_account_list_response = json_decode(grab("$url_wgn_account_list&search=$nickname&limit=1"), true);
     $account_id = $wgn_account_list_response["data"][0]["account_id"];
     
     if (isset($account_id)) {
@@ -20,7 +20,7 @@ if (isset($_POST["search"])) {
         $output = [];
 
         foreach ($wgn_games as $game) {
-            $account_info_response = json_decode(grab("$url_game_account_info[$game]?application_id=$application_id&account_id=$account_id"), true);
+            $account_info_response = json_decode(grab("$url_game_account_info[$game]&account_id=$account_id"), true);
             $last_battle_time = $account_info_response["data"][$account_id]["last_battle_time"];
 
             $output += array($last_battle_time => $game);
