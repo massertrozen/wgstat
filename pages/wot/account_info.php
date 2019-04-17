@@ -263,45 +263,6 @@ echo "</table>";
 <button class="find-new-user">Найти другого</button>
 
 <script>
-    $(".find-new-user").click(function() {
-        $.removeCookie("nickname");
-        $.removeCookie("game");
-        location.reload();
-    });
-
-    $(".switch-game").click(function() {
-        let game = $(this).attr("to");
-        let nickname = $.cookie('nickname');
-        $.cookie("game", game, { expires: 1, path: "/"});
-
-        switch (game) {
-            case "wot":
-                $.post("../helpers/wot_account_info.php", { search: nickname })
-                .done(function(response) {
-                    $(".main-container").load("../pages/wot_account_info.php", { account_info: response });
-                });
-                break;
-    
-            case "wows":
-                $.post("../helpers/wows_account_info.php", { search: nickname })
-                .done(function(response) {
-                    $(".main-container").load("../pages/wows_account_info.php", { account_info: response });
-                });
-                break;
-    
-            case "wotb":
-                $.post("../helpers/wotb_account_info.php", { search: nickname })
-                .done(function(response) {
-                    $(".main-container").load("../pages/wotb_account_info.php", { account_info: response });
-                });
-                break;
-    
-            case "wowp":
-                $.post("../helpers/wowp_account_info.php", { search: nickname })
-                .done(function(response) {
-                    $(".main-container").load("../pages/wowp_account_info.php", { account_info: response });
-                });
-                break;
-        }
-    });
+    $(".find-new-user").click(() => { resetSearch(); });
+    $(".switch-game").click(function() { switchGameTo($(this).attr("to")); });
 </script>
