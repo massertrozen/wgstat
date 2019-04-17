@@ -1,6 +1,6 @@
 <?php
-require_once("../helpers/grabber.php");
-require_once("../helpers/urls.php");
+require_once("../grabber.php");
+require_once("../urls.php");
 
 $url_game_account_info = array(
     "wot" => $url_wot_account_info,

@@ -1,5 +1,11 @@
 <?php
 $application_id = "85ef22379a59f6a0dba28174be9a0902";
+$main_redirect_uri = "http://x-gaming.club/";
+$signatures_redirect_uri = "http://x-gaming.club/signatures/";
+// $signatures_redirect_uri = "http://10.5.0.68/signatures/";
+
+// authorization;
+$url_wgn_authorization = "https://api.worldoftanks.ru/wot/auth/login/?application_id=$application_id";
 
 // wot;
 $url_wot_account_list = "https://api.worldoftanks.ru/wot/account/list/?application_id=$application_id";
@@ -31,5 +37,6 @@ $url_wowp_account_info = "https://api.worldofwarplanes.ru/wowp/account/info2/?ap
 $url_wgn_account_list = "https://api.worldoftanks.ru/wgn/account/list/?application_id=$application_id";
 $url_wgn_account_info = "https://api.worldoftanks.ru/wgn/account/info/?application_id=$application_id";
 $url_wgn_servers_info = "https://api.worldoftanks.ru/wgn/servers/info/?application_id=$application_id";
+$url_wgn_logout = "https://api.worldoftanks.ru/wot/auth/logout/?application_id=$application_id";
 
 ?>

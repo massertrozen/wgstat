@@ -1,22 +1,22 @@
 <?php
-require_once("../helpers/config.php");
-require_once("../helpers/grabber.php");
+require_once("../config.php");
+require_once("../grabber.php");
 
 if (isset($_POST["search"])) {
     $nickname = $_POST["search"];
 
-    $account_list_response = json_decode(grab("$url_wotb_account_list&search=$nickname&limit=1"), true);
+    $account_list_response = json_decode(grab("$url_wot_account_list&search=$nickname&limit=1"), true);
     $account_id = $account_list_response["data"][0]["account_id"];
     
     if (isset($account_id)) {
         mysql_connect("localhost", "root", "");
 	    mysql_select_db("wgstat");
-        mysql_query("INSERT INTO $wotb_accounts_table VALUES ($account_id)");
+        mysql_query("INSERT INTO $wot_accounts_table VALUES ($account_id)");
         mysql_close();
 
-        $account_info_response = json_decode(grab("$url_wotb_account_info&account_id=$account_id"), true);
-        $tanks_stat_response = json_decode(grab("$url_wotb_tanks_stat&account_id=$account_id"), true);
-        $account_achievements_response = json_decode(grab("$url_wotb_account_achievements&account_id=$account_id"), true);
+        $account_info_response = json_decode(grab("$url_wot_account_info&account_id=$account_id"), true);
+        $tanks_stat_response = json_decode(grab("$url_wot_tanks_stat&account_id=$account_id"), true);
+        $account_achievements_response = json_decode(grab("$url_wot_account_achievements&account_id=$account_id"), true);
 
         $slice_offset = ceil(count($tanks_stat_response["data"][$account_id]) / 100);
         $sliced_tanks_array = [];
@@ -31,35 +31,36 @@ if (isset($_POST["search"])) {
                 $tanks_ids .= ",".$tank["tank_id"];
             }
 
-            $tanks_encyclopedia_response = json_decode(grab("$url_wotb_encyclopedia&tank_id=$tanks_ids&fields=tier,name,tank_id"), true);
+            $tanks_encyclopedia_response = json_decode(grab("$url_wot_encyclopedia&tank_id=$tanks_ids&fields=tier,name,tank_id"), true);
             $tanks_encyclopedia += $tanks_encyclopedia_response["data"];
         }
 
         $clan_info = [];
-        $clans_accountinfo_response = json_decode(grab("$url_wotb_clans_accountinfo&account_id=$account_id"), true);
-        $clan_id = $clans_accountinfo_response["data"][$account_id]["clan_id"];
+        $clans_accountinfo_response = json_decode(grab("$url_wot_clans_accountinfo&account_id=$account_id"), true);
+        $clan_id = $clans_accountinfo_response["data"][$account_id]["clan"]["clan_id"];
         if (isset($clan_id)) {
             $clan_role = $clans_accountinfo_response["data"][$account_id]["role"];
             $clan_joined_at = $clans_accountinfo_response["data"][$account_id]["joined_at"];
 
-            $clans_info_response = json_decode(grab("$url_wotb_clans_info&clan_id=$clan_id"), true);
+            $clans_info_response = json_decode(grab("$url_wot_clans_info&clan_id=$clan_id"), true);
             $clan_name = $clans_info_response["data"][$clan_id]["name"];
             $clan_members_count = $clans_info_response["data"][$clan_id]["members_count"];
             $clan_created_at = $clans_info_response["data"][$clan_id]["created_at"];
             $clan_leader_name = $clans_info_response["data"][$clan_id]["leader_name"];
             $clan_tag = $clans_info_response["data"][$clan_id]["tag"];
             $clan_motto = $clans_info_response["data"][$clan_id]["motto"];
-            $clan_description = $clans_info_response["data"][$clan_id]["description"];
+            $clan_description = $clans_info_response["data"][$clan_id]["description_html"];
+            $clan_emblems = $clans_info_response["data"][$clan_id]["emblems"];
 
             $clan_info += array(
                 "id" => $clan_id, "role" => $clan_role, "joined_at" => $clan_joined_at, 
                 "name" => $clan_name, "members_count" => $clan_members_count, "created_at" => $clan_created_at,
                 "leader_name" => $clan_leader_name, "tag" => $clan_tag, "motto" => $clan_motto,
-                "description" => $clan_description            
+                "description" => $clan_description, "emblems" => $clan_emblems
             );
         }
 
-        $glossary_response = json_decode(grab("$url_wotb_glossary"), true);
+        $glossary_response = json_decode(grab("$url_wot_glossary"), true);
 
         $wgn_accounts_response = json_decode(grab("$url_wgn_account_info&account_id=$account_id"), true);
 
@@ -72,7 +73,7 @@ if (isset($_POST["search"])) {
         + array("clan_info" => $clan_info)
         + array("glossary" => $glossary_response["data"]["clans_roles"])
         + array("wgn_accounts" => $wgn_accounts_response["data"][$account_id]["games"])
-        + array("wgn_servers" => $wgn_servers_response["data"]["wotb"]);
+        + array("wgn_servers" => $wgn_servers_response["data"]["wot"]);
 
         echo json_encode($statistics_all);
     } else echo json_encode(array("error" => "Such user`s nickname not found."));

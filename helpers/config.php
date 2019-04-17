@@ -1,6 +1,46 @@
 <?php
 require_once("urls.php");
 
+// WGN database info;
+$wgn_accounts_table = "wgn_accounts";
+$wgn_account_id = "account_id";
+$wgn_access_token = "access_token";
+
+// Signatures database info;
+$sign_table = "signatures";
+$sign_account_id = "account_id";
+$sign_nickname = "nickname"; // with clan tag;
+$sign_game = "game";
+$sign_background = "background";
+$sign_global_rating = "global_rating";
+$sign_kpd = "kpd";
+$sign_wn6 = "wn6";
+$sign_wn7 = "wn7";
+$sign_battles = "battles";
+$sign_wins_percent = "wins_percent";
+$sign_avg_tanks_tier = "avg_tanks_tier";
+$sign_avg_assist_damage = "avg_assist_damage";
+$sign_avg_damage = "avg_damage";
+$sign_damage_koef = "damage_koef";
+$sign_kills_koef = "kills_koef";  
+$sign_avg_kills = "avg_kills";
+$sign_avg_spotted = "avg_spotted";
+$sign_avg_captured = "avg_captured";
+$sign_avg_dropped_capture = "avg_dropped_capture";
+$sign_hits_percent = "hits_percent";
+$sign_sirvive_percent = "survive_percent";
+$sign_avg_xp = "avg_xp";
+$sign_avg_damage_dealt = "avg_damage_dealt";
+$sign_max_xp = "max_xp";
+$sign_max_damage = "max_damage";
+$sign_avg_shots = "avg_shots";
+$sign_avg_hits = "avg_hits";
+$sign_avg_piercings = "avg_piercings";
+$sign_masters_counter = "masters_counter"; // masters / tanks;
+$sign_joint_victory_percent = "joint_victory_percent";
+$sign_updated = "updated";
+
+
 // WOT database info:
 $wot_accounts_table = "wot_accounts";
 $wot_accounts_account_id = "account_id";

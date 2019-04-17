@@ -1,6 +1,6 @@
 <?php
-require_once("../helpers/config.php");
-require_once("../helpers/grabber.php");
+require_once("../config.php");
+require_once("../grabber.php");
 
 mysql_connect("localhost", "root", "");
 mysql_select_db("wgstat");
