@@ -1,0 +1,611 @@
+* {
+    margin: 0;
+    padding: 0;    
+    outline: none;
+}
+
+@font-face {
+	font-family: "Roboto-Black";  
+	src: url("..//fonts/Roboto/Roboto-Black.ttf") format("truetype"); 
+	font-style: normal; 
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "Roboto-BlackItalic";  
+	src: url("../fonts/Roboto/Roboto-BlackItalic.ttf") format("truetype"); 
+	font-style: normal; 
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "Roboto-Bold";  
+	src: url("../fonts/Roboto/Roboto-Bold.ttf") format("truetype"); 
+	font-style: normal; 
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "Roboto-BoldItalic";  
+	src: url("../fonts/Roboto/Roboto-BoldItalic.ttf") format("truetype"); 
+	font-style: normal; 
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "Roboto-Italic";  
+	src: url("../fonts/Roboto/Roboto-Italic.ttf") format("truetype"); 
+	font-style: normal; 
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "Roboto-Light";  
+	src: url("../fonts/Roboto/Roboto-Light.ttf") format("truetype"); 
+	font-style: normal; 
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "Roboto-LightItalic";  
+	src: url("../fonts/Roboto/Roboto-LightItalic.ttf") format("truetype"); 
+	font-style: normal; 
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "Roboto-Medium";  
+	src: url("../fonts/Roboto/Roboto-Medium.ttf") format("truetype"); 
+	font-style: normal; 
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "Roboto-MediumItalic";  
+	src: url("../fonts/Roboto/Roboto-MediumItalic.ttf") format("truetype"); 
+	font-style: normal; 
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "Roboto-Regular";  
+	src: url("../fonts/Roboto/Roboto-Regular.ttf") format("truetype"); 
+	font-style: normal; 
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "Roboto-Thin";  
+	src: url("../fonts/Roboto/Roboto-Thin.ttf") format("truetype"); 
+	font-style: normal; 
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "Roboto-ThinItalic";  
+	src: url("../fonts/Roboto/Roboto-ThinItalic.ttf") format("truetype"); 
+	font-style: normal; 
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "BauhausCTT-Regular";  
+	src: url("../fonts/BauhausCTT-Regular/BauhausCTT-Regular.otf") format("opentype"); 
+	font-style: normal; 
+	font-weight: normal;
+}
+
+
+
+#default-bkgs-container {
+    display: none;
+}
+
+#default-bkgs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.default-bkg {
+    margin: 10px;
+}
+
+#default-bkgs label {	
+	cursor: pointer;
+	position: relative;	
+}
+
+#default-bkgs input[type=radio], #default-bkgs input[type=checkbox] {
+	display: none;
+}
+
+#default-bkgs label:before {
+	content: "";
+	display: inline-block;
+	width: 468px;
+	height: 100px;	
+	position: absolute;
+	left: 0;
+}
+
+#default-bkgs input[type=radio]:checked + label:before {
+    content: "выбрано";
+    color: #f3f3f3;
+    font-size: 30px;
+    text-align: center;
+    line-height: 85px;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: all .15s;
+}
+
+.signature {
+    width: 468px;
+    height: 100px;
+    background: #ccc;
+    position: relative;
+    margin: 2em auto;
+}
+
+.signature .option {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    /* top: 0;
+    left: 0; */
+    cursor: move;
+    white-space: no-wrap;
+}
+
+.signature .value_1 {
+    top: 0px;
+}
+
+.signature .value_2 {
+    top: 20px;
+}
+
+.signature .value_3 {
+    top: 40px;
+}
+
+.signature .value_4 {
+    top: 60px;
+}
+  
+.signature .value_5 {
+    top: 80px;
+}
+
+.signature .value_6 {
+    top: 0px;
+    left: 120px;
+}
+
+.signature .value_7 {
+    top: 20px;
+    left: 120px;
+}
+
+.signature .value_8 {
+    top: 40px;
+    left: 120px;
+}
+
+.signature .value_9 {
+    top: 60px;
+    left: 120px;
+}
+  
+.signature .value_10 {
+    top: 80px;
+    left: 120px;
+}
+
+.signature .value_11 {
+    top: 0px;
+    left: 240px;
+}
+
+.signature .value_12 {
+    top: 20px;
+    left: 240px;
+}
+
+.signature .value_13 {
+    top: 40px;
+    left: 240px;
+}
+
+.signature .value_14 {
+    top: 60px;
+    left: 240px;
+}
+  
+.signature .value_15 {
+    top: 80px;
+    left: 240px;
+}
+
+.options .option {
+    margin-bottom: 10px;
+}
+
+/* Main page */
+body {
+    background-color: #1c1c1e; 
+    background-position: top center;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+    font-family: Roboto-Regular;
+    color: #fafafa;
+}
+
+body.main {
+    background-image: url("../img/back.jpg");       
+}
+
+body.wows {
+    background-image: url("../img/wows.jpg");
+    background-size: contain;
+    background-color: #0f2032; 
+}
+
+body.wowp {
+    background-image: url("../img/wowp.jpg");
+    background-size: contain;
+    background-color: #92bbdb;
+}
+
+body.wotb {
+    background-image: url("../img/bg.jpg");
+    background-size: contain;
+}
+
+.wotb .main-container {
+    background-image: url("../img/sparkles.png");
+}
+
+.main-container {
+    position: relative;
+    width: 100%;
+}
+
+.main-content {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.find-nickname {
+    padding-top: 55%;
+    height: calc(100vh - 55% - 108px - 25px - 11px);
+    text-align: center;
+}
+
+.main-input {
+    width: 80%;
+    padding: 20px 15px;
+    font-size: 24px;    
+    border-radius: 5px;
+    border: 0;
+    outline: none;
+    background: rgba(255, 255, 255, .1);
+    caret-color: #fff;
+    color: #ccc;
+    border: 1px solid rgba(255, 255, 255, 0);
+}
+
+.main-input::placeholder {
+    color: #757575;
+}
+
+.main-input:focus {
+    border: 1px solid #757575;
+    box-shadow: 0 10px 200px rgba(255,255,255,0.12), 0 15px 200px rgba(255,255,255,.24);
+}
+
+input.search {
+    transition: all .7s ease;
+    background-image: url("../img/baseline-search-24px.svg");
+    background-repeat: no-repeat;
+    background-position: center right 15px;
+    background-size: 7%;
+}
+
+.main-button {
+    opacity: .7;
+    transition: all .4s ease;
+    letter-spacing: 2px;
+    padding: 10px 50px;
+    margin: 40px 0 20px 0;
+    background-color: transparent;
+    border: 3px solid #f9f5e1;
+    border-radius: 5px;
+    text-transform: uppercase;
+    color: #f9f5e1;
+    font-weight: bold;
+}
+
+.main-button:hover {
+    transition: all .6s ease;
+    opacity: 1;
+    cursor: pointer;
+    background: #f9f5e1;
+    color: #474747;
+}
+
+.find-nickname-error {
+    color: #fafafa;
+    letter-spacing: 1px;
+    font-size: 12px;
+}
+
+.find-nickname-error i {
+    margin: 0 5px;
+}
+
+.main-footer {
+    position: absolute;    
+    width: 100%;
+    height: 108px;
+    margin-bottom: 25px;
+}
+
+.main-footer span {
+    font-weight: bold;
+}
+
+.main-footer:after {
+    background-image: url("../img/footer-logo.png");
+    background-repeat: no-repeat;
+    background-position: center right 15px;
+    content: "";
+    opacity: .4;
+    display: block;
+    position: absolute;
+    right: 15px;
+    bottom: 0;
+    height: 108px;
+    width: 218px;
+}
+
+.footer-author, .footer-about {
+    position: absolute;
+    color: #757575;
+    bottom: 5px;
+}
+
+.footer-author {
+    padding: 10px 25px
+}
+
+.footer-author a {
+    color: #757575;
+    text-decoration: none;
+}
+
+.footer-author:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    background-color: #757575;
+    opacity: .8;
+    transition: width .2s ease-out;
+}
+
+.footer-author:hover:after {
+    width: 90%;
+}
+
+.footer-author:hover {
+    cursor: pointer;
+}
+
+.footer-about {
+    width: 100%;
+    text-align: center;
+    font-size: 11px;
+}
+
+/* Account Info page */
+table.vehicles {
+    color: #757575;
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, .2);
+    border-collapse: collapse;
+}
+
+table.vehicles thead {
+    color: #b8b8a2;
+    background: #302f2d;
+}
+
+table.vehicles td {
+    padding: 15px;
+    font-size: 11px;
+}
+
+table.vehicles thead td {
+    font-size: 15px;
+}
+
+table.vehicles tr {
+    transition: .3s;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+table.vehicles tr:last-child {
+    border:0;
+}
+
+table.vehicles tr:hover {
+    cursor: pointer;
+    transition: .4s;
+    background: rgba(255, 255, 255, .05);
+}
+
+/* #e9e2bf */
+/* #a29e87 */
+/* Switch game buttons */
+.games {
+    padding: 0 20px;
+    position: fixed;
+    transform: translateX(70%);
+    right: 0;
+    transition: .5s;
+}
+
+.games:hover {
+    transform: translateX(0%);
+    transition: .7s;
+}
+
+.switch-game {
+    background: transparent;
+    border: 0;
+    margin: 10px 0;
+    color: #fafafa;
+    font-family: Roboto-Black;
+    opacity: .6;
+    transition: .2s;
+}
+
+.switch-game:hover {
+    opacity: 1;
+    cursor: pointer;
+    transition: .2s;
+}
+
+/* Nickname row */
+.nickname-wrapper {
+    margin-top: 30%;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row nowrap;
+}
+
+.nickname {
+    color: white;
+    font-family: Roboto-Black;    
+    font-size: 2.5em;
+}
+
+.nickname-info {
+    font-family: Roboto-Regular;
+    font-size: 0.3em;
+    color: #a29e87;
+    line-height: 15px;
+}
+
+.nickname-info span {
+    font-family: Roboto-Black;  
+}
+
+/* SVG circles */
+.ratings-wrapper {
+    margin-top: 5%;
+    display: flex;
+    flex-flow: row nowrap;
+}
+  
+.single-chart {
+    font-family: BauhausCTT-Regular; 
+    text-align: center;
+    width: 33%;
+    justify-content: space-around ;
+}
+  
+.single-chart span {
+    font-family: Roboto-Black;
+}
+
+.circular-chart {
+    display: block;
+    margin: 10px auto;
+    max-width: 80%;
+    max-height: 250px;
+}
+  
+.circle-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, .15);
+    stroke-width: 3.8;
+}
+  
+.circle {
+    fill: none;
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    animation: progress 1s ease-out forwards;
+}
+  
+@keyframes progress {
+    0% {
+        stroke-dasharray: 0 100;
+    }
+}
+  
+.circular-chart.bad .circle {
+    stroke: #e53935;
+}
+
+.circular-chart.medium .circle {
+    stroke: #f4511e;
+}
+
+.circular-chart.normal .circle {
+    stroke: #ff9f00;
+}
+  
+.circular-chart.good .circle {
+    stroke: #4CC790;
+}
+  
+.circular-chart.perfect .circle {
+    stroke: #3c9ee5;
+}
+
+.circular-chart.excellent .circle {
+    stroke: #ab47bc;
+}
+  
+.percentage {
+    fill: #fafafa;
+    font-size: 0.38em;
+    text-anchor: middle;
+}
+
+/* In development page */
+.landing  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 80%;
+}
+
+.card-1 { 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.wowp h1 {
+    padding-top: 25%;
+    text-shadow: 1px 1px 2px #000, 0 0 1em #000;
+}
+
+.wowp .main-footer:after {
+    opacity: .8;
+}
+
+.wowp .footer-author a, .wowp .footer-about {
+    color: #fafafa;
+}
+
+.wowp .footer-author:after {
+    background-color: #fafafa;
+}
