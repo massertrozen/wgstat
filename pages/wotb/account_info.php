@@ -297,51 +297,85 @@ echo<<<HERE
   </div>
 </div>
 
-<table>    
-    <tr><td>Всего боёв</td> <td>$battles<td></tr>
-    <tr><td>Процент побед</td> <td>$wins_percent_rounded %<td></tr>
-    <tr><td>Общее количество побед</td> <td>$wins<td></tr>
-    <tr><td>Поражения</td> <td>$losses<td></tr>
-    <tr><td>Ничьи</td> <td>$draw<td></tr>
-    <tr><td>---</td></tr>
-    <tr><td>Из них побед взводом (%)</td> <td>$joint_victory_percent %<td></tr>
-    <tr><td>Взводные победы</td> <td>$joint_victory<td></tr>
-    <tr><td>Соло победы</td> <td>$solo_wins<td></tr>
-    <tr><td>Средний уровень танков</td> <td>$avg_tier_rounded<td></tr>
-    <tr><td>---</td></tr>
-    <tr><td>Общий урон</td> <td>$damage_dealt<td></tr>
-    <tr><td>Уничтожено</td> <td>$frags<td></tr>
-    <tr><td>Обнаружено</td> <td>$spotted<td></tr>
-    <tr><td>Очков захвата базы</td> <td>$capture_points<td></tr>
-    <tr><td>Очков защиты базы</td> <td>$dropped_capture_points<td></tr>
-    <tr><td>Произведено выстрелов</td> <td>$shots<td></tr>
-    <tr><td>Выжил в боях</td> <td>$survived_battles<td></tr>
-    <tr><td>Получено опыта</td> <td>$xp<td></tr>
-    <tr><td>---</td></tr>
-    <tr><td>Средний урон</td> <td>$avg_damage_dealt_rounded<td></tr>
-    <tr><td>Коэф. урона</td> <td>$damage_rate_rounded<td></tr>
-    <tr><td>Коэф. уничтожения</td> <td>$destruction_rate_rounded<td></tr>
-    <tr><td>Убито за бой</td> <td>$avg_frags_rounded<td></tr>
-    <tr><td>Обнаружено за бой</td> <td>$avg_spotted_rounded<td></tr>
-    <tr><td>Захват базы за бой</td> <td>$avg_capture_rounded<td></tr>
-    <tr><td>Защита базы за бой</td> <td>$avg_dropped_capture_rounded<td></tr>
-    <tr><td>Процент попадания</td> <td>$hits_percent_rounded %<td></tr>
-    <tr><td>Процент выживания</td> <td>$survival_percent_rounded %<td></tr>
-    <tr><td>Средний опыт за бой</td> <td>$avg_xp_rounded<td></tr>
-    <tr><td>Вытанковано в среднем</td> <td>$avg_damage_received<td></tr>
-    <tr><td>Максимальный опыт за бой </td> <td>$max_xp<td></tr>
-    <tr><td>на танке</td> <td>$tanks_names[$max_xp_tank_id]<td></tr>
-    <tr><td>Максимальный уровень техники</td> <td>$max_tier</td></tr>
-    <tr><td>Использовано техники</td> <td>$tanks_counter</td></tr>
-    <tr><td>В среднем выстрелов за бой</td> <td>$avg_shots</td></tr>
-    <tr><td>В среднем попаданий за бой</td> <td>$avg_hits</td></tr>
-    <tr><td>Количество мастеров</td> <td>$masters</td></tr>
-</table>
+<div class="stats-wrapper">
+  <div class="stat-table">
+    <div class="stat-table-title">Общие показатели</div>
+    <table class='stats'>    
+      <tr><td class='label'>Всего боёв</td> <td class='value'>$battles<td></tr>
+      <tr><td class='label'>Процент побед</td> <td class='value'>$wins_percent_rounded %<td></tr>
+      <tr><td class='label'>Общее количество побед</td class='value'> <td>$wins<td></tr>
+      <tr><td class='label'>Поражения</td> <td class='value'>$losses<td></tr>
+      <tr><td class='label'>Ничьи</td> <td>$draw<td></tr>
+    </table>
+  </div>
 
+  <div class="stat-table">
+    <div class="stat-table-title"></div>
+    <table class='stats'>
+      <tr><td class='label'>Количество мастеров</td> <td class='value'>$masters</td></tr>
+      <tr><td class='label'>Из них побед взводом (%)</td> <td class='value'>$joint_victory_percent %<td></tr>
+      <tr><td class='label'>Взводные победы</td> <td class='value'>$joint_victory<td></tr>
+      <tr><td class='label'>Соло победы</td> <td class='value'>$solo_wins<td></tr>
+      <tr><td class='label'>Средний уровень танков</td> <td class='value'>$avg_tier_rounded<td></tr>
+    </table>
+  </div>
+
+  <div class="stat-table">
+    <div class="stat-table-title">Боевая эффективность</div>
+    <table class='stats'>
+      <tr><td class='label'>Общий урон</td> <td class='value'>$damage_dealt<td></tr>
+      <tr><td class='label'>Уничтожено</td> <td class='value'>$frags<td></tr>
+      <tr><td class='label'>Обнаружено</td> <td class='value'>$spotted<td></tr>
+      <tr><td class='label'>Очков захвата базы</td> <td class='value'>$capture_points<td></tr>
+      <tr><td class='label'>Очков защиты базы</td> <td class='value'>$dropped_capture_points<td></tr>
+      <tr><td class='label'>Произведено выстрелов</td> <td class='value'>$shots<td></tr>
+      <tr><td class='label'>Выжил в боях</td> <td class='value'>$survived_battles<td></tr>
+      <tr><td class='label'>Получено опыта</td> <td class='value'>$xp<td></tr>
+    </table>
+  </div>
+
+  <div class="stat-table">
+    <div class="stat-table-title"></div>
+    <table class='stats'>
+      <tr><td class='label'>Средний урон</td> <td class='value'>$avg_damage_dealt_rounded<td></tr>
+      <tr><td class='label'>Уничтожено за бой</td> <td class='value'>$avg_frags_rounded<td></tr>
+      <tr><td class='label'>Обнаружено за бой</td> <td class='value'>$avg_spotted_rounded<td></tr>
+      <tr><td class='label'>Захват базы за бой</td> <td class='value'>$avg_capture_rounded<td></tr>
+      <tr><td class='label'>Защита базы за бой</td> <td class='value'>$avg_dropped_capture_rounded<td></tr>
+      <tr><td class='label'>Процент попадания</td> <td class='value'>$hits_percent_rounded %<td></tr>
+      <tr><td class='label'>Процент выживания</td> <td class='value'>$survival_percent_rounded %<td></tr>
+      <tr><td class='label'>Средний опыт за бой</td> <td class='value'>$avg_xp_rounded<td></tr>
+    </table>
+  </div>
+
+  <div class="stat-table">
+    <div class="stat-table-title">Прочие показатели</div>
+    <table class='stats'>    
+      <tr><td class='label'>Использовано техники</td> <td class='value'>$tanks_counter</td></tr>
+      <tr><td class='label'>Максимальный опыт</td> <td class='value'>$max_xp<td></tr>
+      <tr><td class='label'>Выстрелов за бой</td> <td class='value'>$avg_shots</td></tr>
+      <tr><td class='label'>Попаданий за бой</td> <td class='value'>$avg_hits</td></tr>
+    </table>
+  </div>
+
+  <div class="stat-table">
+    <div class="stat-table-title"></div>
+    <table class='stats'>
+      <tr><td class='label'>Максимальный уровень</td> <td class='value'>$max_tier</td></tr>
+      <tr><td class='label'>на танке</td> <td class='value'>$tanks_names[$max_xp_tank_id]<td></tr>
+      <tr><td class='label'>Коэф. урона</td> <td class='value'>$damage_rate_rounded<td></tr>
+      <tr><td class='label'>Коэф. уничтожения</td> <td class='value'>$destruction_rate_rounded<td></tr>
+    </table>
+  </div>
+</div>
 
 HERE;
-echo "<table class='vehicles'>";
-echo "<thead><tr><td>Уровень</td> <td>Танк</td> <td>Мастерство</td> <td>Бои</td> <td>Победы</td> <td>Урон</td> <td>Ср.опыт</td></tr></thead>";
+echo "
+<div class='vehicles-wrapper'>
+  <table class='vehicles'>
+    <thead>
+      <tr><td>Уровень</td> <td>Танк</td> <td>Мастерство</td> <td>Бои</td> <td>Победы</td> <td>Урон</td> <td>Ср.опыт</td></tr>
+    </thead>";
     foreach ($tanks_stat as $tank) {
         $tank_id = $tank->tank_id;
         $tank_tier = $tanks_tiers[$tank_id] ? $tanks_tiers[$tank_id] : "<i>hidden</i>";
@@ -360,7 +394,9 @@ echo "<thead><tr><td>Уровень</td> <td>Танк</td> <td>Мастерст�
 
         echo "<tr><td>$tank_tier</td> <td>$tank_name</td> <td>$tank_mark_of_mastery</td> <td>$tank_battles</td> <td>$tank_wins_percent %</td> <td>$tank_avg_damage_dealt</td> <td>$tank_avg_xp</td></tr>";
     }
-echo "</table>";
+echo "
+  </table>
+</div>";
 
 echo "<table>";
 echo "<tr><td>Медаль</td> <td>Количество</td></tr>";

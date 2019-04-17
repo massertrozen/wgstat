@@ -412,6 +412,10 @@ input.search {
 }
 
 /* Account Info page */
+.vehicles-wrapper {
+    margin-top: 5%;
+}
+
 table.vehicles {
     color: #757575;
     width: 100%;
@@ -449,8 +453,6 @@ table.vehicles tr:hover {
     background: rgba(255, 255, 255, .05);
 }
 
-/* #e9e2bf */
-/* #a29e87 */
 /* Switch game buttons */
 .games {
     padding: 0 20px;
@@ -601,6 +603,53 @@ table.vehicles tr:hover {
     fill: #fafafa;
     font-size: 0.38em;
     text-anchor: middle;
+}
+
+/* Stats tables */
+.stats-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.stat-table {
+    margin: 20px;
+}
+
+.stat-table-title {
+    color: #e9e2bf;
+    height: 40px;
+}
+
+table.stats {
+    font-size: 13px;
+    border-collapse: collapse;
+    color: #a29e87;
+}
+
+table.stats td {    
+    padding: 10px 15px;
+}
+
+table.stats tr {
+    transition: .3s;
+    border-bottom: 2px solid rgba(255, 255, 255, .1);
+}
+
+table.stats tr:last-child {
+    border:0;
+}
+
+table.stats tr:hover {
+    cursor: pointer;
+    transition: .4s;
+    background: rgba(255, 255, 255, .05);
+}
+
+.stats .value {
+    font-family: BauhausCTT-Regular;
 }
 
 /* In development page */
