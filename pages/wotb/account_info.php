@@ -126,11 +126,6 @@ if (isset($_POST["account_info"])) {
     $WN6_prc = $WN6 * 100 / $ratings_max_value;
     $WN7_prc = $WN7 * 100 / $ratings_max_value;
 
-    // echo "Сервера:<br>";
-    // foreach ($wgn_servers as $server_info) {
-    //     echo $server_info->server.": ".$server_info->players_online."<br>";
-    // }
-
     $wot_icon = "
     <svg version=\"1.1\" id=\"wot\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" width=\"24px\" height=\"43px\" viewBox=\"0 0 24 43\" enable-background=\"new 0 0 24 43\" xml:space=\"preserve\">
     <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" fill=\"#FFFFFF\" d=\"M12.0079,38L0.1203,26.2519V11.3133L6.5077,5h11.1349
@@ -195,18 +190,42 @@ if (isset($_POST["account_info"])) {
     if ($WN7 >= 1585 && $WN7 <= 1924) { $WN7_color = "perfect"; }
     if ($WN7 >= 1925 && $WN7 <= 9999) { $WN7_color = "excellent"; }
 
+    $selected_game = $_COOKIE["game"];
 
-    
+     // TODO:
+    // echo "Сервера:<br>";
+    // foreach ($wgn_servers as $server_info) {
+    //     echo $server_info->server.": ".$server_info->players_online."<br>";
+    // }
+    // <tr><td>Клан</td> <td>[$clan_tag]</td></tr>
+    // <tr><td>Звание</td> <td>$clan_role_normal</td></tr>
+    // <tr><td>Дней в клане</td> <td>$clan_days_joined</td></tr>
+    // <tr><td>---</td></tr>
+    // <tr><td>Клан</td> <td>$clan_name [$clan_tag]</td></tr>
+    // <tr><td>Создан</td> <td>$clan_created_at</td></tr>
+    // <tr><td>Лидер</td> <td>$clan_leader_name</td></tr>
+    // <tr><td>Девиз</td> <td>$clan_motto</td></tr>
+    // <tr><td>Описание</td> <td>$clan_description</td></tr>
+    // <tr><td>Игроков в клане</td> <td>$clan_members_count</td></tr>
+    // <tr><td>---</td></tr>
 
 echo<<<HERE
 <div class="games">
 HERE;
 foreach ($wgn_accounts as $game) {
-    echo "<div class='switch-game' to='$game'>
-            $wgn_icons[$game] 
-            посмотреть профиль<br>
-            $wgn_games[$game]
-        </div>";
+  $desc = "посмотреть профиль";
+  if ($selected_game === $game) {
+    $isActive = "active";
+    $desc = "отображается сейчас";
+  }
+
+  echo "<div class='switch-game $isActive' to='$game'>
+          <div class='icon'>$wgn_icons[$game]</div>
+          <div class='desc'>
+            $desc
+            <span>$wgn_games[$game]</span>
+          </div>
+      </div>";
 }
 echo<<<HERE
 </div>
@@ -278,18 +297,7 @@ echo<<<HERE
   </div>
 </div>
 
-<table>
-    <tr><td>Клан</td> <td>[$clan_tag]</td></tr>
-    <tr><td>Звание</td> <td>$clan_role_normal</td></tr>
-    <tr><td>Дней в клане</td> <td>$clan_days_joined</td></tr>
-    <tr><td>---</td></tr>
-    <tr><td>Клан</td> <td>$clan_name [$clan_tag]</td></tr>
-    <tr><td>Создан</td> <td>$clan_created_at</td></tr>
-    <tr><td>Лидер</td> <td>$clan_leader_name</td></tr>
-    <tr><td>Девиз</td> <td>$clan_motto</td></tr>
-    <tr><td>Описание</td> <td>$clan_description</td></tr>
-    <tr><td>Игроков в клане</td> <td>$clan_members_count</td></tr>
-    <tr><td>---</td></tr>
+<table>    
     <tr><td>Всего боёв</td> <td>$battles<td></tr>
     <tr><td>Процент побед</td> <td>$wins_percent_rounded %<td></tr>
     <tr><td>Общее количество побед</td> <td>$wins<td></tr>
@@ -346,6 +354,9 @@ echo "<thead><tr><td>Уровень</td> <td>Танк</td> <td>Мастерст�
         $tank_xp = $tank->all->xp;
         $tank_avg_xp = round($tank_xp / $tank_battles);
         $tank_mark_of_mastery = $tank->mark_of_mastery;
+
+        if ($tank_mark_of_mastery == 0) $tank_mark_of_mastery = "—";
+        else $tank_mark_of_mastery = "<img src='./assets/img/rank_$tank_mark_of_mastery.png' alt='rank_$tank_mark_of_mastery' width='25px' />";
 
         echo "<tr><td>$tank_tier</td> <td>$tank_name</td> <td>$tank_mark_of_mastery</td> <td>$tank_battles</td> <td>$tank_wins_percent %</td> <td>$tank_avg_damage_dealt</td> <td>$tank_avg_xp</td></tr>";
     }

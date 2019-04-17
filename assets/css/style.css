@@ -466,19 +466,42 @@ table.vehicles tr:hover {
 }
 
 .switch-game {
+    display: flex;
+    flex-direction: row;
     background: transparent;
     border: 0;
-    margin: 10px 0;
+    margin: 15px 0;
     color: #fafafa;
-    font-family: Roboto-Black;
-    opacity: .6;
+    opacity: .4;
     transition: .2s;
+    text-align: center;
 }
 
 .switch-game:hover {
     opacity: 1;
     cursor: pointer;
     transition: .2s;
+}
+
+.switch-game.active {
+    opacity: 1;
+    pointer-events: none;
+}
+
+.switch-game .desc {
+    display: flex;
+    width: -webkit-fill-available;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    padding-left: 35px;
+}
+
+.switch-game span {
+    font-size: 18px;
+    display: block;
+    font-family: Roboto-Black;
 }
 
 /* Nickname row */
