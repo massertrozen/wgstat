@@ -1,6 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [v.0.6] - 17.04.2019
+### Added
+- WG API authorization;
+- upload your own background for signature;
+- crop your own background for signature;
+- select one background from defaults;
+- signature constructor;
+- design for player search;
+
 ## [v.0.5] - 09.03.2019
 ### Added
 - MySql database support;
