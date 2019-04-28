@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/material-icons.css" rel="stylesheet">
+    <link href="assets/css/balloon.css" rel="stylesheet">
 </head>
 <body class="main">
     <noscript>To work with this service you need to swith ON your browser JavaScript.</noscript>
