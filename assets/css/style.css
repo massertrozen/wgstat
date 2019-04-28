@@ -276,6 +276,10 @@ body.wotb {
     margin: 0 auto;
 }
 
+.wotb .main-content, .wot .main-content {
+    width: 60%;
+}
+
 .find-nickname {
     padding-top: 55%;
     height: calc(100vh - 55% - 108px - 25px - 11px);
@@ -316,7 +320,7 @@ input.search {
     opacity: .7;
     transition: all .4s ease;
     letter-spacing: 2px;
-    padding: 10px 50px;
+    padding: 1em 2em;
     margin: 40px 0 20px 0;
     background-color: transparent;
     border: 3px solid #f9f5e1;
@@ -511,7 +515,7 @@ input.search {
 .circular-chart {
     display: block;
     margin: 10px auto;
-    max-width: 80%;
+    max-width: 70%;
     max-height: 250px;
 }
   
@@ -569,12 +573,12 @@ input.search {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
     margin-top: 5%;
 }
 
 .stat-table {
-    margin: 20px;
+    margin: 20px 15px;
 }
 
 .table-title {
@@ -623,7 +627,8 @@ table.stats tr:hover {
 .medals-ribbon {
     text-align: center;
     height: 90px;
-    background-size: 100%;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     background-image: url(../img/ribbon.png);
 }
@@ -655,7 +660,8 @@ table.stats tr:hover {
 .vehicles-wrapper {
     margin-top: 5%;
     height: 600px;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .vehicles-wrapper::-webkit-scrollbar {
@@ -756,4 +762,37 @@ table.vehicles thead tr .headerSortDown {
 
 .wowp .footer-author:after {
     background-color: #fafafa;
+}
+
+.mobile {
+    display: none;
+}
+
+/* Mobile fixes */
+@media all and (max-width: 985px) {
+    .wotb .main-content, .wot .main-content { width: 80%; }
+    .nickname-wrapper { margin-top: 15%; }
+    .games:hover { border-radius: 55px 0 0 55px; background: rgba(28, 28, 30, 0.9); z-index: 1; }
+}
+
+@media all and (max-width: 750px) {
+    .nickname-wrapper { width: 80%; margin: 0 auto; margin-top: 10%; }
+    .nickname { font-size: 2.2em; }
+    .main-button { font-size: 0.7em; }
+    .wotb .main-content, .wot .main-content { width: 95%; }
+    .vehicles-wrapper { width: 85%;margin: 0 auto; margin-top: 5%; }
+    .tank-mastery, .footer-author, .main-footer:after { display: none; }
+    .games { padding: 0 70px; }
+}
+
+@media all and (max-width: 630px) {
+    .stat-table { display: none; }
+    .stat-table.mobile { display: block; margin: 0 auto; width: 80%; margin-top: 5%; }    
+    .stat-table.mobile table { width: 100%; }
+    .tank-exp { display: none; }
+}
+
+@media all and (max-width: 580px) {
+    .medal-image img { width: 50px; }
+    .medal { margin: 0 10px; }
 }
