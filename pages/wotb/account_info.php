@@ -301,11 +301,11 @@ echo<<<HERE
   <div class="stat-table">
     <div class="stat-table-title">Общие показатели</div>
     <table class='stats'>    
-      <tr><td class='label'>Всего боёв</td> <td class='value'>$battles<td></tr>
-      <tr><td class='label'>Процент побед</td> <td class='value'>$wins_percent_rounded %<td></tr>
-      <tr><td class='label'>Общее количество побед</td class='value'> <td>$wins<td></tr>
-      <tr><td class='label'>Поражения</td> <td class='value'>$losses<td></tr>
-      <tr><td class='label'>Ничьи</td> <td>$draw<td></tr>
+      <tr><td class='label'>Всего боёв</td> <td class='value'>$battles</td></tr>
+      <tr><td class='label'>Процент побед</td> <td class='value'>$wins_percent_rounded %</td></tr>
+      <tr><td class='label'>Общее количество побед</td> <td class='value'>$wins</td></tr>
+      <tr><td class='label'>Поражения</td> <td class='value'>$losses</td></tr>
+      <tr><td class='label'>Ничьи</td> <td class='value'>$draw</td></tr>
     </table>
   </div>
 
@@ -313,38 +313,38 @@ echo<<<HERE
     <div class="stat-table-title"></div>
     <table class='stats'>
       <tr><td class='label'>Количество мастеров</td> <td class='value'>$masters</td></tr>
-      <tr><td class='label'>Из них побед взводом (%)</td> <td class='value'>$joint_victory_percent %<td></tr>
-      <tr><td class='label'>Взводные победы</td> <td class='value'>$joint_victory<td></tr>
-      <tr><td class='label'>Соло победы</td> <td class='value'>$solo_wins<td></tr>
-      <tr><td class='label'>Средний уровень танков</td> <td class='value'>$avg_tier_rounded<td></tr>
+      <tr><td class='label'>Из них побед взводом (%)</td> <td class='value'>$joint_victory_percent %</td></tr>
+      <tr><td class='label'>Взводные победы</td> <td class='value'>$joint_victory</td></tr>
+      <tr><td class='label'>Соло победы</td> <td class='value'>$solo_wins</td></tr>
+      <tr><td class='label'>Средний уровень танков</td> <td class='value'>$avg_tier_rounded</td></tr>
     </table>
   </div>
 
   <div class="stat-table">
     <div class="stat-table-title">Боевая эффективность</div>
     <table class='stats'>
-      <tr><td class='label'>Общий урон</td> <td class='value'>$damage_dealt<td></tr>
-      <tr><td class='label'>Уничтожено</td> <td class='value'>$frags<td></tr>
-      <tr><td class='label'>Обнаружено</td> <td class='value'>$spotted<td></tr>
-      <tr><td class='label'>Очков захвата базы</td> <td class='value'>$capture_points<td></tr>
-      <tr><td class='label'>Очков защиты базы</td> <td class='value'>$dropped_capture_points<td></tr>
-      <tr><td class='label'>Произведено выстрелов</td> <td class='value'>$shots<td></tr>
-      <tr><td class='label'>Выжил в боях</td> <td class='value'>$survived_battles<td></tr>
-      <tr><td class='label'>Получено опыта</td> <td class='value'>$xp<td></tr>
+      <tr><td class='label'>Общий урон</td> <td class='value'>$damage_dealt</td></tr>
+      <tr><td class='label'>Уничтожено</td> <td class='value'>$frags</td></tr>
+      <tr><td class='label'>Обнаружено</td> <td class='value'>$spotted</td></tr>
+      <tr><td class='label'>Очков захвата базы</td> <td class='value'>$capture_points</td></tr>
+      <tr><td class='label'>Очков защиты базы</td> <td class='value'>$dropped_capture_points</td></tr>
+      <tr><td class='label'>Произведено выстрелов</td> <td class='value'>$shots</td></tr>
+      <tr><td class='label'>Выжил в боях</td> <td class='value'>$survived_battles</td></tr>
+      <tr><td class='label'>Получено опыта</td> <td class='value'>$xp</td></tr>
     </table>
   </div>
 
   <div class="stat-table">
     <div class="stat-table-title"></div>
     <table class='stats'>
-      <tr><td class='label'>Средний урон</td> <td class='value'>$avg_damage_dealt_rounded<td></tr>
-      <tr><td class='label'>Уничтожено за бой</td> <td class='value'>$avg_frags_rounded<td></tr>
-      <tr><td class='label'>Обнаружено за бой</td> <td class='value'>$avg_spotted_rounded<td></tr>
-      <tr><td class='label'>Захват базы за бой</td> <td class='value'>$avg_capture_rounded<td></tr>
-      <tr><td class='label'>Защита базы за бой</td> <td class='value'>$avg_dropped_capture_rounded<td></tr>
-      <tr><td class='label'>Процент попадания</td> <td class='value'>$hits_percent_rounded %<td></tr>
-      <tr><td class='label'>Процент выживания</td> <td class='value'>$survival_percent_rounded %<td></tr>
-      <tr><td class='label'>Средний опыт за бой</td> <td class='value'>$avg_xp_rounded<td></tr>
+      <tr><td class='label'>Средний урон</td> <td class='value'>$avg_damage_dealt_rounded</td></tr>
+      <tr><td class='label'>Уничтожено за бой</td> <td class='value'>$avg_frags_rounded</td></tr>
+      <tr><td class='label'>Обнаружено за бой</td> <td class='value'>$avg_spotted_rounded</td></tr>
+      <tr><td class='label'>Захват базы за бой</td> <td class='value'>$avg_capture_rounded</td></tr>
+      <tr><td class='label'>Защита базы за бой</td> <td class='value'>$avg_dropped_capture_rounded</td></tr>
+      <tr><td class='label'>Процент попадания</td> <td class='value'>$hits_percent_rounded %</td></tr>
+      <tr><td class='label'>Процент выживания</td> <td class='value'>$survival_percent_rounded %</td></tr>
+      <tr><td class='label'>Средний опыт за бой</td> <td class='value'>$avg_xp_rounded</td></tr>
     </table>
   </div>
 
@@ -352,7 +352,7 @@ echo<<<HERE
     <div class="stat-table-title">Прочие показатели</div>
     <table class='stats'>    
       <tr><td class='label'>Использовано техники</td> <td class='value'>$tanks_counter</td></tr>
-      <tr><td class='label'>Максимальный опыт</td> <td class='value'>$max_xp<td></tr>
+      <tr><td class='label'>Максимальный опыт</td> <td class='value'>$max_xp</td></tr>
       <tr><td class='label'>Выстрелов за бой</td> <td class='value'>$avg_shots</td></tr>
       <tr><td class='label'>Попаданий за бой</td> <td class='value'>$avg_hits</td></tr>
     </table>
@@ -362,9 +362,9 @@ echo<<<HERE
     <div class="stat-table-title"></div>
     <table class='stats'>
       <tr><td class='label'>Максимальный уровень</td> <td class='value'>$max_tier</td></tr>
-      <tr><td class='label'>на танке</td> <td class='value'>$tanks_names[$max_xp_tank_id]<td></tr>
-      <tr><td class='label'>Коэф. урона</td> <td class='value'>$damage_rate_rounded<td></tr>
-      <tr><td class='label'>Коэф. уничтожения</td> <td class='value'>$destruction_rate_rounded<td></tr>
+      <tr><td class='label'>на танке</td> <td class='value'>$tanks_names[$max_xp_tank_id]</td></tr>
+      <tr><td class='label'>Коэф. урона</td> <td class='value'>$damage_rate_rounded</td></tr>
+      <tr><td class='label'>Коэф. уничтожения</td> <td class='value'>$destruction_rate_rounded</td></tr>
     </table>
   </div>
 </div>
@@ -372,10 +372,19 @@ echo<<<HERE
 HERE;
 echo "
 <div class='vehicles-wrapper'>
-  <table class='vehicles'>
+  <table id='sortable-table' class='vehicles'>
     <thead>
-      <tr><td>Уровень</td> <td>Танк</td> <td>Мастерство</td> <td>Бои</td> <td>Победы</td> <td>Урон</td> <td>Ср.опыт</td></tr>
-    </thead>";
+      <tr>
+        <th>Уровень</th> 
+        <th>Танк</th> 
+        <th>Мастерство</th> 
+        <th>Бои</th> 
+        <th>Победы</th> 
+        <th>Урон</th> 
+        <th>Ср.опыт</th>
+      </tr>
+    </thead>
+    <tbody>";
     foreach ($tanks_stat as $tank) {
         $tank_id = $tank->tank_id;
         $tank_tier = $tanks_tiers[$tank_id] ? $tanks_tiers[$tank_id] : "<i>hidden</i>";
@@ -392,9 +401,19 @@ echo "
         if ($tank_mark_of_mastery == 0) $tank_mark_of_mastery = "—";
         else $tank_mark_of_mastery = "<img src='./assets/img/rank_$tank_mark_of_mastery.png' alt='rank_$tank_mark_of_mastery' width='25px' />";
 
-        echo "<tr><td>$tank_tier</td> <td>$tank_name</td> <td>$tank_mark_of_mastery</td> <td>$tank_battles</td> <td>$tank_wins_percent %</td> <td>$tank_avg_damage_dealt</td> <td>$tank_avg_xp</td></tr>";
+        echo "
+        <tr>
+          <td>$tank_tier</td> 
+          <td>$tank_name</td> 
+          <td>$tank_mark_of_mastery</td> 
+          <td>$tank_battles</td> 
+          <td>$tank_wins_percent %</td> 
+          <td>$tank_avg_damage_dealt</td> 
+          <td>$tank_avg_xp</td>
+        </tr>";
     }
 echo "
+    </tbody>
   </table>
 </div>";
 
@@ -418,4 +437,5 @@ echo "</table>";
 <script>
     $(".find-new-user").click(() => { resetSearch(); });
     $(".switch-game").click(function() { switchGameTo($(this).attr("to")); });
+    $("#sortable-table").tablesorter({ sortList: [[0,1]] }); 
 </script>

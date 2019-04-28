@@ -4,6 +4,7 @@
     <script type="text/javascript" src="assets/js/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.tablesorter.min.js"></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
     <link href="assets/css/style.css" rel="stylesheet">

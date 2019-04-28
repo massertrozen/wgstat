@@ -414,6 +414,21 @@ input.search {
 /* Account Info page */
 .vehicles-wrapper {
     margin-top: 5%;
+    height: 600px;
+    overflow: auto;
+}
+
+.vehicles-wrapper::-webkit-scrollbar {
+    width: 5px;
+}
+
+.vehicles-wrapper::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .2);
+}
+ 
+.vehicles-wrapper::-webkit-scrollbar-thumb {
+  background-color: #302f2d;
+  min-height: 55px;
 }
 
 table.vehicles {
@@ -424,18 +439,21 @@ table.vehicles {
     border-collapse: collapse;
 }
 
-table.vehicles thead {
+table.vehicles thead th {
+    font-weight: normal;
     color: #b8b8a2;
     background: #302f2d;
+    position: sticky;
+    top: 0;
 }
 
-table.vehicles td {
-    padding: 15px;
+table.vehicles td, table.vehicles th {
+    padding: 20px 15px;
     font-size: 11px;
 }
 
-table.vehicles thead td {
-    font-size: 15px;
+table.vehicles thead th {
+    font-size: 13px;
 }
 
 table.vehicles tr {
@@ -451,6 +469,22 @@ table.vehicles tr:hover {
     cursor: pointer;
     transition: .4s;
     background: rgba(255, 255, 255, .05);
+}
+
+table.vehicles thead tr .headerSortUp {
+    font-weight: bold;
+    background: #222224;
+    background-repeat: no-repeat;
+    background-position: bottom;
+	background-image: url(../img/baseline-keyboard_arrow_down-24px.svg);
+}
+
+table.vehicles thead tr .headerSortDown {
+    font-weight: bold;
+    background: #222224;
+    background-repeat: no-repeat;
+    background-position: top;
+	background-image: url(../img/baseline-keyboard_arrow_up-24px.svg);
 }
 
 /* Switch game buttons */
