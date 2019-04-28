@@ -17,7 +17,7 @@
         <div class="main-content">
             <form class="find-nickname">
                 <input type="text" class="main-input search" name="nickname" placeholder="Кого найти?" autofocus required />
-                <button type="submit" class="main-button">Вперёд</button>
+                <button type="submit" class="main-button">Показать статистику</button>
                 <div class="find-nickname-error"></div>
             </form>
         </div>

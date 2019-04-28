@@ -273,7 +273,17 @@ body.wotb {
 
 .main-content {
     width: 50%;
+    height: fit-content;
     margin: 0 auto;
+}
+
+.main .main-content {
+    min-height: 100%;
+}
+
+.main .main-footer {
+    margin: 0;
+    margin-top: -130px;
 }
 
 .wotb .main-content, .wot .main-content {
@@ -281,8 +291,7 @@ body.wotb {
 }
 
 .find-nickname {
-    padding-top: 55%;
-    height: calc(100vh - 55% - 108px - 25px - 11px);
+    padding-top: 50%;
     text-align: center;
 }
 
@@ -784,10 +793,15 @@ table.vehicles thead tr .headerSortDown {
 }
 
 /* Mobile fixes */
+@media all and (max-width: 1200px) {
+    .main .main-container { background: rgba(28, 28, 30, 0.4); }
+}
+
 @media all and (max-width: 985px) {
     .wotb .main-content, .wot .main-content { width: 80%; }
     .nickname-wrapper { margin-top: 15%; }
     .games:hover { border-radius: 55px 0 0 55px; background: rgba(28, 28, 30, 0.9); z-index: 1; }
+    .main .main-container { background: rgba(28, 28, 30, 0.6); }
 }
 
 @media all and (max-width: 750px) {
@@ -795,6 +809,7 @@ table.vehicles thead tr .headerSortDown {
     .nickname { font-size: 2.2em; }
     .main-button { font-size: 0.7em; }
     .wotb .main-content, .wot .main-content { width: 95%; }
+    .main .main-content { width: 65%; }
     .vehicles-wrapper { width: 85%;margin: 0 auto; margin-top: 5%; }
     .tank-mastery, .footer-author, .main-footer:after { display: none; }
     .games { padding: 0 70px; }
@@ -810,4 +825,5 @@ table.vehicles thead tr .headerSortDown {
 @media all and (max-width: 580px) {
     .medal-image img { width: 50px; }
     .medal { margin: 0 10px; }
+    .main .main-content { width: 90%; }
 }
