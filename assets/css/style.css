@@ -768,6 +768,21 @@ table.vehicles thead tr .headerSortDown {
     display: none;
 }
 
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background: #1c1c1e;
+}
+
+.loader img {
+    padding-top: 25%;
+}
+
 /* Mobile fixes */
 @media all and (max-width: 985px) {
     .wotb .main-content, .wot .main-content { width: 80%; }

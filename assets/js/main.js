@@ -65,6 +65,7 @@ function animatePage(game) {
                                   
     $(".main-container").show("fade", 1500);
     document.title = "Статистика " + $.cookie("nickname") + " | WGstat";
+    $(".loader").remove();
 }
 
 function resetSearch() {
@@ -74,6 +75,7 @@ function resetSearch() {
 }
 
 function switchGameTo(game) {
+    $(".main-content").append("<div class='loader'><img width='50px' src='../assets/img/loader.svg'/></div>");
     let nickname = $.cookie("nickname");
     $.cookie("game", game, { expires: 1, path: "/"});
     findNickname(nickname);
