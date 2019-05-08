@@ -1,4 +1,6 @@
 <?php
+require_once("../config.php");
+
 if (isset($_POST["account_info"])) {
     // statitics: info, all, tanks, achievements, max_series, clan, wgn_accounts;
     $account_info = json_decode($_POST["account_info"]);
@@ -16,6 +18,7 @@ if (isset($_POST["account_info"])) {
 
     // info;
     $nickname = $account_info->nickname;
+    $account_id = $account_info->account_id;
     $created_at = date("d.m.Y", $account_info->created_at);
     $updated_at = date("d.m.Y H:i:s", $account_info->updated_at);
     $last_battle_time = date("d.m.Y в H:i", $account_info->last_battle_time);
@@ -147,5 +150,12 @@ $options = [
     "Побед взводом" => $joint_victory_percent
 ];
 
-echo json_encode($options);
+mysql_connect("localhost", "root", "");
+mysql_select_db("wgstat");
+$sign_data_isset_query = mysql_query("SELECT $sign_background FROM $sign_table WHERE $sign_account_id=$account_id AND $sign_game='wotb'");
+$data = mysql_fetch_array($sign_data_isset_query);
+$signature_bkg = $data[$sign_background];
+mysql_close();
+
+echo json_encode(["values" => $options, "wgn_accounts" => $wgn_accounts, "background" => $signature_bkg]);
 ?>
