@@ -958,6 +958,7 @@ table.vehicles thead tr .headerSortDown {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .option {
@@ -976,7 +977,11 @@ table.vehicles thead tr .headerSortDown {
 }
 
 .option select {
-    width: 49%;
+    width: 40%;
+}
+
+.signs .landing .signature, .signs .landing .generate-sign {
+    display: none;
 }
 
 .signs .title {
@@ -1103,6 +1108,7 @@ table.vehicles thead tr .headerSortDown {
     .nickname-wrapper { margin-top: 15%; }
     .wotb .games:hover { border-radius: 55px 0 0 55px; background: rgba(28, 28, 30, 0.9); z-index: 1; }
     .wot .games:hover { border-radius: 55px 0 0 55px; background: rgba(28, 27, 22, 0.9); z-index: 1; }
+    .signs .games:hover { border-radius: 55px 0 0 55px; background: rgba(28, 28, 30, 0.9); z-index: 1; }
     .main .main-container { background: rgba(28, 28, 30, 0.6); }
 }
 
