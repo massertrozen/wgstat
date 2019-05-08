@@ -204,6 +204,7 @@ echo<<<HERE
 HERE;
 foreach ($wgn_accounts as $game) {
   $desc = "посмотреть профиль";
+  $isActive = "";
   if ($selected_game === $game) {
     $isActive = "active";
     $desc = "отображается сейчас";
@@ -312,16 +313,16 @@ echo<<<HERE
 </div>
 
 <div class="stat-table mobile">
-    <div class="table-title">Общие показатели</div>
-    <table class="stats">    
-      <tr><td class="label">Всего боёв</td> <td class="value">$battles</td></tr>
-      <tr><td class="label">Процент побед</td> <td class="value">$wins_percent_rounded %</td></tr>
-      <tr><td class="label">Из них побед взводом (%)</td> <td class="value">$joint_victory_percent %</td></tr>
-      <tr><td class="label">Количество мастеров</td> <td class="value">$masters</td></tr>
-      <tr><td class="label">Взводные победы</td> <td class="value">$joint_victory</td></tr>
-      <tr><td class="label">Средний уровень танков</td> <td class="value">$avg_tier_rounded</td></tr>
-    </table>
-  </div>
+  <div class="table-title">Общие показатели</div>
+  <table class="stats">    
+    <tr><td class="label">Всего боёв</td> <td class="value">$battles</td></tr>
+    <tr><td class="label">Процент побед</td> <td class="value">$wins_percent_rounded %</td></tr>
+    <tr><td class="label">Из них побед взводом (%)</td> <td class="value">$joint_victory_percent %</td></tr>
+    <tr><td class="label">Количество мастеров</td> <td class="value">$masters</td></tr>
+    <tr><td class="label">Взводные победы</td> <td class="value">$joint_victory</td></tr>
+    <tr><td class="label">Средний уровень танков</td> <td class="value">$avg_tier_rounded</td></tr>
+  </table>
+</div>
 
 <div class="medals-wrapper">
   <div class="table-title">Главные достижения</div>
@@ -423,18 +424,18 @@ echo<<<HERE
 </div>
 
 <div class="stat-table mobile">
-    <div class="table-title">Прочие показатели</div>
-    <table class="stats">    
-      <tr><td class="label">Использовано техники</td> <td class="value">$tanks_counter</td></tr>
-      <tr><td class="label">Максимальный опыт</td> <td class="value">$max_xp</td></tr>
-      <tr><td class="label">на танке</td> <td class="value">$tanks_names[$max_xp_tank_id]</td></tr>
-      <tr><td class="label">Выстрелов за бой</td> <td class="value">$avg_shots</td></tr>
-      <tr><td class="label">Попаданий за бой</td> <td class="value">$avg_hits</td></tr>
-      <tr><td class="label">Максимальный уровень</td> <td class="value">$max_tier</td></tr>      
-      <tr><td class="label">Коэф. урона</td> <td class="value">$damage_rate_rounded</td></tr>
-      <tr><td class="label">Коэф. уничтожения</td> <td class="value">$destruction_rate_rounded</td></tr>
-    </table>
-  </div>
+  <div class="table-title">Прочие показатели</div>
+  <table class="stats">    
+    <tr><td class="label">Использовано техники</td> <td class="value">$tanks_counter</td></tr>
+    <tr><td class="label">Максимальный опыт</td> <td class="value">$max_xp</td></tr>
+    <tr><td class="label">на танке</td> <td class="value">$tanks_names[$max_xp_tank_id]</td></tr>
+    <tr><td class="label">Выстрелов за бой</td> <td class="value">$avg_shots</td></tr>
+    <tr><td class="label">Попаданий за бой</td> <td class="value">$avg_hits</td></tr>
+    <tr><td class="label">Максимальный уровень</td> <td class="value">$max_tier</td></tr>      
+    <tr><td class="label">Коэф. урона</td> <td class="value">$damage_rate_rounded</td></tr>
+    <tr><td class="label">Коэф. уничтожения</td> <td class="value">$destruction_rate_rounded</td></tr>
+  </table>
+</div>
 
 <div class="vehicles-wrapper">
   <table id="sortable-table" class="vehicles">
