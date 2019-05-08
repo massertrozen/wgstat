@@ -15,16 +15,30 @@ require_once("../helpers/grabber.php");
     <script type="text/javascript" src="../assets/js/croppic.js"></script>
     <link href="../assets/css/style.css" rel="stylesheet">
     <link href="../assets/css/croppic.css" rel="stylesheet">
+    <link href="../assets/css/material-icons.css" rel="stylesheet">
 </head>
-<body>
+<body class="signs main">
     <noscript>To work with this service you need to swith ON your browser JavaScript.</noscript>
     <div class="main-container">
-        Для доступа к данной странице необходимо авторизоваться. <br>
-        Процесс осуществляется на стороне Wargaming.net, потому наш сервис не имеет доступа к вашим конфеденциальным данным. <br>
-        <a href="<? echo $url_wgn_authorization."&redirect_uri=".$signatures_redirect_uri ?>">
-            <button type="submit">Авторизоваться</button>   
-        </a>
-        <div class="authorization-error"></div>
+        <div class="main-content">
+            <div class="find-nickname">
+                <div class="title"><i class="material-icons">info_outline</i>Для доступа к данной странице необходимо авторизоваться.</div>
+                <span class="subtitle">Процесс осуществляется на стороне Wargaming.net, потому наш сервис не имеет доступа к вашим конфеденциальным данным.</span>
+                <a href="<? echo $url_wgn_authorization."&redirect_uri=".$signatures_redirect_uri ?>">
+                    <button class="main-button">Авторизоваться</button>   
+                </a>
+                <div class="authorization-error"></div>
+            </div>
+        </div>
+
+        <div class="main-footer">
+            <div class="footer-author">
+                <a href="https://vk.com/massertrozen"><i class="material-icons">copyright</i> <span>SkyWex</span> dev.</a>
+            </div>
+            <div class="footer-about">
+                <span>WGstat</span> — сервис просмотра статистики по играм Wargaming.net
+            </div>
+        </div>   
     </div>
 </body>
 </html>

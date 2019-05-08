@@ -21,45 +21,106 @@ function load_signatures_page(access_token) {
                 .done(function(response) {
                     response = JSON.parse(response);
                     if ("ok" in response) {
-                        $(".main-container").load("../pages/signatures/signatures_display.php");
+                        $(".main-content").load("../pages/signatures/signatures_display.php");
                     } else if ("process" in response) {
                         let game = $.cookie("signatures_game");
 
-                        // switch (game) {
-                        //     case "wot":
-                        //         $.post("../helpers/wot/account_info.php", { search: nickname })
-                        //         .done(function(response) {
-                        //             $(".main-container").load("../pages/wot/account_info.php", { account_info: response });
-                        //         });
-                        //         break;
+                        switch (game) {
+                            case "wot":
+                                $.post("../helpers/wot/account_info.php", { search: nickname })
+                                .done(function(response) {
+                                    $.post("../helpers/signatures/get_wot_options.php", { account_info: response })
+                                    .done(function(response) {
+                                        $(".main-content").load("../pages/signatures/signatures_generation.php", { options: response });
+                                    });
+                                });
+                                break;
                     
-                        //     case "wows":
-                        //         $.post("../helpers/wows/account_info.php", { search: nickname })
-                        //         .done(function(response) {
-                        //             $(".main-container").load("../pages/wows/account_info.php", { account_info: response });
-                        //         });
-                        //         break;
+                            case "wows":
+                                $.post("../helpers/wows/account_info.php", { search: nickname })
+                                .done(function(response) {
+                                    $.post("../helpers/signatures/get_wows_options.php", { account_info: response })
+                                    .done(function(response) {
+                                        $(".main-content").load("../pages/signatures/signatures_generation.php", { options: response });
+                                    });
+                                });
+                                break;
                     
-                        //     case "wotb":
-                        //         $.post("../helpers/wotb/account_info.php", { search: nickname })
-                        //         .done(function(response) {
-                        //             $(".main-container").load("../pages/wotb/account_info.php", { account_info: response });
-                        //         });
-                        //         break;
+                            case "wotb":
+                                $.post("../helpers/wotb/account_info.php", { search: nickname })
+                                .done(function(response) {
+                                    $.post("../helpers/signatures/get_wotb_options.php", { account_info: response })
+                                    .done(function(response) {
+                                        $(".main-content").load("../pages/signatures/signatures_generation.php", { options: response });
+                                    });
+                                });
+                                break;
                     
-                        //     case "wowp":
-                        //         $.post("../helpers/wowp/account_info.php", { search: nickname })
-                        //         .done(function(response) {
-                        //             $(".main-container").load("../pages/wowp/account_info.php", { account_info: response });
-                        //         });
-                        //         break;
-                        // }
-                        $(".main-container").load("../pages/signatures/signatures_generation.php");
+                            case "wowp":
+                                $.post("../helpers/wowp/account_info.php", { search: nickname })
+                                .done(function(response) {
+                                    $.post("../helpers/signatures/get_wowp_options.php", { account_info: response })
+                                    .done(function(response) {
+                                        $(".main-content").load("../pages/signatures/signatures_generation.php", { options: response });
+                                    });
+                                });
+                                break;
+                        }
                     } else {
-                        $(".main-container").load("../pages/signatures/signatures_promo.php");
+                        $(".main-content").load("../pages/signatures/signatures_promo.php");
                     }                    
                 });                
             });
+        }
+    });
+}
+
+function initOptionsArray() {
+    let options = [];
+
+    $(".option").each(function(key, element) {
+        let isEnabled = $(this).find(".option-enabled").is(':checked') ? true : false;
+        let optionValue = $(this).find(".option-value").text();
+        let font = $(this).find(".option-font").val();
+        let fontSize = parseInt($(this).find(".option-font-size").val());
+
+        let option = { isEnabled, font, fontSize, X: 0, Y: 0 };
+        options[optionValue] = option;
+    });
+    
+    return options;
+}
+
+function updateCoordinates(element) {
+    element = $(element);
+    let option = element.text();
+    let positionTop = element.position().top;
+    var postionLeft = element.position().left;
+    
+    options[option].X = positionTop;
+    options[option].Y = postionLeft;
+}
+
+function updateSignature() {
+    $(".signature").html("");
+
+    for (let option in options) {
+        let isEnabled = options[option].isEnabled;
+        let font = options[option].font;
+        let fontSize = options[option].fontSize;
+        let X = options[option].X;
+        let Y = options[option].Y;
+
+        if (isEnabled) {
+            let signOption = "<div class='sign-option' style='font-family: " + font + "; font-size: " + fontSize + "; top: " + X + "; left: " + Y + "'>" + option + "<div>";
+            $(".signature").append(signOption);
+        }
+    }
+
+    $(".sign-option").draggable({
+        containment: "parent",
+        stop: function() {
+            updateCoordinates(this);
         }
     });
 }
@@ -68,7 +129,7 @@ $(function() {
     if ($.cookie("access_token") !== undefined) {
         let access_token = $.cookie("access_token");
         
-        $(".main-container").html("loading...<div class='authorization-error'></div");
+        $(".main-content").append("<div class='loader'><img width='50px' src='../assets/img/loader.svg'/></div>");
         load_signatures_page(access_token);
-    }    
+    } 
 });

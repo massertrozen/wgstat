@@ -95,140 +95,215 @@
 	font-weight: normal;
 }
 
-
-
-#default-bkgs-container {
-    display: none;
+/* Sign fonts */
+@font-face {
+    font-family: "XG-1";
+    src: url("../fonts/AdverGothic-Regular/AdverGothic-Regular.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
 }
 
-#default-bkgs {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+@font-face {
+    font-family: "XG-2";
+    src: url("../fonts/Aksent-Normal/Aksent-Normal.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
 }
 
-.default-bkg {
-    margin: 10px;
+@font-face {
+    font-family: "XG-3";
+    src: url("../fonts/Arkhip_font/Arkhip_font.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
 }
 
-#default-bkgs label {	
-	cursor: pointer;
-	position: relative;	
+@font-face {
+    font-family: "XG-4";
+    src: url("../fonts/Arthur-Gothic-Regular/Arthur-Gothic-Regular.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
 }
 
-#default-bkgs input[type=radio], #default-bkgs input[type=checkbox] {
-	display: none;
+@font-face {
+    font-family: "XG-5";
+    src: url("../fonts/Banco-Normal/Banco-Normal.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
 }
 
-#default-bkgs label:before {
-	content: "";
-	display: inline-block;
-	width: 468px;
-	height: 100px;	
-	position: absolute;
-	left: 0;
+@font-face {
+    font-family: "XG-6";
+    src: url("../fonts/BauhausCTT-Regular/BauhausCTT-Regular.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
 }
 
-#default-bkgs input[type=radio]:checked + label:before {
-    content: "выбрано";
-    color: #f3f3f3;
-    font-size: 30px;
-    text-align: center;
-    line-height: 85px;
-    background-color: rgba(0, 0, 0, 0.7);
-    transition: all .15s;
+@font-face {
+    font-family: "XG-7";
+    src: url("../fonts/BenguiatGothicCTT-BoldItalic/BenguiatGothicCTT-BoldItalic.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
 }
 
-.signature {
-    width: 468px;
-    height: 100px;
-    background: #ccc;
-    position: relative;
-    margin: 2em auto;
+@font-face {
+    font-family: "XG-8";
+    src: url("../fonts/CrashCTT-Regular/CrashCTT-Regular.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
 }
 
-.signature .option {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    /* top: 0;
-    left: 0; */
-    cursor: move;
-    white-space: no-wrap;
+@font-face {
+    font-family: "XG-9";
+    src: url("../fonts/Derby-Regular/Derby-Regular.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
 }
 
-.signature .value_1 {
-    top: 0px;
+@font-face {
+    font-family: "XG-10";
+    src: url("../fonts/Docker-One/Docker-One.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
 }
 
-.signature .value_2 {
-    top: 20px;
+@font-face {
+    font-family: "XG-11";
+    src: url("../fonts/DS-Zombie-Cyr-Bold/DS-Zombie-Cyr-Bold.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
 }
 
-.signature .value_3 {
-    top: 40px;
+@font-face {
+    font-family: "XG-12";
+    src: url("../fonts/Dynar-Bold/Dynar-Bold.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
 }
 
-.signature .value_4 {
-    top: 60px;
-}
-  
-.signature .value_5 {
-    top: 80px;
-}
-
-.signature .value_6 {
-    top: 0px;
-    left: 120px;
+@font-face {
+    font-family: "XG-13";
+    src: url("../fonts/DynarShadow-Bold/DynarShadow-Bold.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
 }
 
-.signature .value_7 {
-    top: 20px;
-    left: 120px;
+@font-face {
+    font-family: "XG-14";
+    src: url("../fonts/EuropeExt-Italic/EuropeExt-Italic.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
 }
 
-.signature .value_8 {
-    top: 40px;
-    left: 120px;
+@font-face {
+    font-family: "XG-15";
+    src: url("../fonts/Gagalin-Regular/Gagalin-Regular.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
 }
 
-.signature .value_9 {
-    top: 60px;
-    left: 120px;
-}
-  
-.signature .value_10 {
-    top: 80px;
-    left: 120px;
+@font-face {
+    font-family: "XG-16";
+    src: url("../fonts/Glasten-Normal/Glasten-Normal.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
 }
 
-.signature .value_11 {
-    top: 0px;
-    left: 240px;
+@font-face {
+    font-family: "XG-17";
+    src: url("../fonts/GOST-type-A-Standard/GOST-type-A-Standard.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
 }
 
-.signature .value_12 {
-    top: 20px;
-    left: 240px;
+@font-face {
+    font-family: "XG-18";
+    src: url("../fonts/Graffiti1CTT-Regular/Graffiti1CTT-Regular.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
 }
 
-.signature .value_13 {
-    top: 40px;
-    left: 240px;
+@font-face {
+    font-family: "XG-19";
+    src: url("../fonts/JakobCTT-Bold/JakobCTT-Bold.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
 }
 
-.signature .value_14 {
-    top: 60px;
-    left: 240px;
-}
-  
-.signature .value_15 {
-    top: 80px;
-    left: 240px;
+@font-face {
+    font-family: "XG-20";
+    src: url("../fonts/KabelCTT-Ultra-Regular/KabelCTT-Ultra-Regular.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
 }
 
-.options .option {
-    margin-bottom: 10px;
+@font-face {
+    font-family: "XG-21";
+    src: url("../fonts/KarollaCTT-Regular/KarollaCTT-Regular.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "XG-22";
+    src: url("../fonts/Madera-TYGRA-Regular/Madera-TYGRA-Regular.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "XG-23";
+    src: url("../fonts/Malahit-Bold/Malahit-Bold.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "XG-24";
+    src: url("../fonts/Mistral-Regular_/Mistral-Regular_.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "XG-25";
+    src: url("../fonts/Moonlight-Regular/Moonlight-Regular.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "XG-26";
+    src: url("../fonts/NewZelek-Normal/NewZelek-Normal.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "XG-27";
+    src: url("../fonts/PentaDemi-Normal/PentaDemi-Normal.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "XG-28";
+    src: url("../fonts/Sensei-Medium/Sensei-Medium.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "XG-29";
+    src: url("../fonts/Start-Normal/Start-Normal.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "XG-30";
+    src: url("../fonts/Stylo-Bold/Stylo-Bold.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
 }
 
 /* Main page */
@@ -262,8 +337,21 @@ body.wotb {
     background-size: contain;
 }
 
-.wotb .main-container {
+body.wot {
+    background-image: url("../img/main-bg_wot.jpg");
+    background-size: contain;
+    background-color: #1c1b16; 
+}
+
+.wotb .main-container, .wot .main-container {
     background-image: url("../img/sparkles.png");
+}
+
+body.signs {
+    background-image: url("../img/layout_background__leaderboards.jpg");
+    background-size: contain;
+    background-attachment: fixed;
+    background-color: #0E0E0E; 
 }
 
 .main-container {
@@ -462,6 +550,10 @@ input.search {
     pointer-events: none;
 }
 
+.switch-game .icon {
+    width: 80px;
+}
+
 .switch-game .desc {
     display: flex;
     width: -webkit-fill-available;
@@ -469,7 +561,7 @@ input.search {
     justify-content: center;
     align-items: center;
     font-size: 12px;
-    padding-left: 35px;
+    padding-left: 15px;
 }
 
 .switch-game span {
@@ -588,6 +680,7 @@ input.search {
 
 .stat-table {
     margin: 20px 15px;
+    min-width: 35%;
 }
 
 .table-title {
@@ -792,6 +885,174 @@ table.vehicles thead tr .headerSortDown {
     padding-top: 25%;
 }
 
+/* Signs */
+.signs .main-content {
+    width: 100%;
+}
+
+#default-bkgs-container {
+    display: none;
+}
+
+#default-bkgs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.default-bkg {
+    margin: 10px;
+}
+
+#default-bkgs label {	
+	cursor: pointer;
+	position: relative;	
+}
+
+#default-bkgs input[type=radio], #default-bkgs input[type=checkbox] {
+	display: none;
+}
+
+#default-bkgs label:before {
+	content: "";
+	display: inline-block;
+	width: 468px;
+	height: 100px;	
+	position: absolute;
+	left: 0;
+}
+
+#default-bkgs input[type=radio]:checked + label:before {
+    content: "выбрано";
+    color: #f3f3f3;
+    font-size: 30px;
+    text-align: center;
+    line-height: 85px;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: all .15s;
+}
+
+.signature {
+    width: 468px;
+    height: 100px;
+    background: rgba(255, 255, 255, .1);
+    position: relative;
+    margin: 2em auto;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.signature .sign-option {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    cursor: move;
+    white-space: no-wrap;
+}
+
+.options {
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.option {
+    opacity: .4;
+    transition: all .2s;
+}
+
+.option:hover {
+    opacity: 1;
+    transition: all .2s;
+}
+
+.options .option {
+    width: 20%;
+    padding: 10px 20px;
+}
+
+.option select {
+    width: 49%;
+}
+
+.signs .title {
+    font-size: 20px;
+}
+
+.signs .title i {
+    margin-right: 10px;
+}
+
+.signs .subtitle {
+    display: block;
+    margin-top: 5px;
+    opacity: 0.6;
+    font-size: 10px;
+}
+
+.option-container {
+    display: block;
+    position: relative;
+    padding-left: 20px;
+    cursor: pointer;
+    font-size: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .option-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #e53935;
+  }
+  
+  .option-container input:checked ~ .checkmark {
+    background-color: #4CC790;
+  }
+
+  .option.selected {
+    opacity: 1;
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .option-container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  .option-container .checkmark:after {
+    left: 4px;
+    top: 2px;
+    width: 3px;
+    height: 7px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
 /* Mobile fixes */
 @media all and (max-width: 1200px) {
     .main .main-container { background: rgba(28, 28, 30, 0.4); }
@@ -800,7 +1061,8 @@ table.vehicles thead tr .headerSortDown {
 @media all and (max-width: 985px) {
     .wotb .main-content, .wot .main-content { width: 80%; }
     .nickname-wrapper { margin-top: 15%; }
-    .games:hover { border-radius: 55px 0 0 55px; background: rgba(28, 28, 30, 0.9); z-index: 1; }
+    .wotb .games:hover { border-radius: 55px 0 0 55px; background: rgba(28, 28, 30, 0.9); z-index: 1; }
+    .wot .games:hover { border-radius: 55px 0 0 55px; background: rgba(28, 27, 22, 0.9); z-index: 1; }
     .main .main-container { background: rgba(28, 28, 30, 0.6); }
 }
 
