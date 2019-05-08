@@ -4,6 +4,7 @@ if (isset($_POST["options"]) && count(json_decode($_POST["options"])->values) > 
     $wgn_accounts = $data->wgn_accounts;
     $options = $data->values;
     $background = $data->background;
+    $selected_game = $_POST["game"];
 
     $wot_icon = "
     <svg version=\"1.1\" id=\"wot\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" width=\"24px\" height=\"43px\" viewBox=\"0 0 24 43\" enable-background=\"new 0 0 24 43\" xml:space=\"preserve\">
@@ -48,13 +49,12 @@ if (isset($_POST["options"]) && count(json_decode($_POST["options"])->values) > 
 
     $wgn_icons = ["wot" => $wot_icon, "wows" => $wows_icon, "wotb" => $wotb_icon, "wowp" => $wowp_icon];
     $wgn_games = ["wot" => "World of Tanks", "wows" => "World of Warships", "wotb" => "World of Tanks Blitz", "wowp" => "World of Warplanes"];
-    $selected_game = "<script>$.cookie('signatures_game')</script>";
 echo<<<HERE
 <div class="games">
 HERE;
 
 foreach ($wgn_accounts as $game) {
-    $desc = "посмотреть профиль";
+    $desc = "перейти на профиль";
     $isActive = "";
     if ($selected_game === $game) {
         $isActive = "active";
@@ -109,13 +109,16 @@ HERE;
     }
     echo "</div>";
 } else {
-    echo "<h1> non supported</h1>";
+    echo "<h1>Страница в разработке. Скоро...</h1>";
+    echo "<button class='recently-game main-button'>Открыть другую игру</button>";
 }
 ?>
 
 <div class="signature" style="background-image: url('<?php echo $background ?>');"></div>
+<center><button class='generate-sign main-button'>Сгенерировать</button></center>
 
 <script> 
+    $(".recently-game").click(() => { resetGame(); });
     var options = initOptionsArray();
 
     $(".option-enabled").change(function() {
@@ -144,6 +147,13 @@ HERE;
         options[optionValue].fontSize = fontSize;
         updateSignature();
     }); 
+
+    $(".switch-game").click(function() { switchGameTo($(this).attr("to")); });
+    
+    $(".generate-sign").click(function() {
+        $.post("../helpers/signatures/signature_set_data.php", { access_token: $.cookie("access_token"), game: $.cookie("signatures_game"), options: options });
+        location.reload();
+    });
 
     $(".logout").click(function() {
         let access_token = $.cookie("access_token");

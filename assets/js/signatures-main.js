@@ -31,7 +31,7 @@ function load_signatures_page(access_token) {
                                 .done(function(response) {
                                     $.post("../helpers/signatures/get_wot_options.php", { account_info: response })
                                     .done(function(response) {
-                                        $(".main-content").load("../pages/signatures/signatures_generation.php", { options: response });
+                                        $(".main-content").load("../pages/signatures/signatures_generation.php", { options: response, game: game });
                                     });
                                 });
                                 break;
@@ -41,7 +41,8 @@ function load_signatures_page(access_token) {
                                 .done(function(response) {
                                     $.post("../helpers/signatures/get_wows_options.php", { account_info: response })
                                     .done(function(response) {
-                                        $(".main-content").load("../pages/signatures/signatures_generation.php", { options: response });
+                                        $(".main-content").addClass("landing");
+                                        $(".main-content").load("../pages/signatures/signatures_generation.php", { options: response, game: game });
                                     });
                                 });
                                 break;
@@ -51,7 +52,7 @@ function load_signatures_page(access_token) {
                                 .done(function(response) {
                                     $.post("../helpers/signatures/get_wotb_options.php", { account_info: response })
                                     .done(function(response) {
-                                        $(".main-content").load("../pages/signatures/signatures_generation.php", { options: response });
+                                        $(".main-content").load("../pages/signatures/signatures_generation.php", { options: response, game: game });
                                     });
                                 });
                                 break;
@@ -61,7 +62,8 @@ function load_signatures_page(access_token) {
                                 .done(function(response) {
                                     $.post("../helpers/signatures/get_wowp_options.php", { account_info: response })
                                     .done(function(response) {
-                                        $(".main-content").load("../pages/signatures/signatures_generation.php", { options: response });
+                                        $(".main-content").addClass("landing");
+                                        $(".main-content").load("../pages/signatures/signatures_generation.php", { options: response, game: game  });
                                     });
                                 });
                                 break;
@@ -75,8 +77,23 @@ function load_signatures_page(access_token) {
     });
 }
 
+function switchGameTo(game) {
+    $(".main-content").append("<div class='loader'><img width='50px' src='../assets/img/loader.svg'/></div>");
+    let nickname = $.cookie("nickname");
+    $.cookie("signatures_game", game, { expires: 1, path: "/signatures"});
+    $.cookie("is_game_swithed", true, { expires: 1, path: "/signatures"});
+    location.reload();
+}
+
+function resetGame() {
+    $(".main-content").append("<div class='loader'><img width='50px' src='../assets/img/loader.svg'/></div>");
+    $.removeCookie("signatures_game");
+    $.removeCookie("is_game_swithed");
+    location.reload();
+}
+
 function initOptionsArray() {
-    let options = [];
+    let options = {};
 
     $(".option").each(function(key, element) {
         let isEnabled = $(this).find(".option-enabled").is(':checked') ? true : false;
