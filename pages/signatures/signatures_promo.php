@@ -1,18 +1,20 @@
-Это сервис по созданию динамических картинок для использования в подписи на форуме.<br>
-Вам необходимо расположить надписи с показателями статистики на выбранном фоне.<br>
-Сами показатели будут обновляться один раз в сутки в автоматическом режиме.<br>
-Ну что ж, приступим? Первым делом необходимо выбрать фон:<br>
-
-<button id="use-default-bkg">Использовать стандартный</button>
-<button id="custom-bkg-upload">Зарузить свой</button>
-
-<hr>
+<div class="service-desc">
+    Это сервис по созданию динамических картинок для использования в подписи на форуме.<br>
+    Вам необходимо расположить надписи с показателями статистики на выбранном фоне.<br>
+    Сами показатели будут обновляться один раз в сутки в автоматическом режиме.<br>
+    Ну что ж, приступим? Первым делом необходимо выбрать фон:<br>
+</div>
+<div class="service-nav">
+    <button id="use-default-bkg" class="sign-button"><i class="material-icons">photo</i> Использовать стандартный</button>
+    <button id="custom-bkg-upload" class="sign-button"><i class="material-icons">control_point</i> Зарузить свой</button>
+    <button class="logout sign-button" ><i class="material-icons">power_settings_new</i> Выйти из аккаунта</button>
+</div>
 <div class="croppic-container">
     <form class="bkg-selector">
         <div id="croppic"></div><br>
         <div class="croppic-error"></div>
         <input type="hidden" id="cropped-url" name="bkg">
-        <button type="submit" class="croppic-select">Дальше</button>
+        <center><button type="submit" class="croppic-select main-button">Перейти к конструтору</button></center>
     </form>
 </div>
 
@@ -34,12 +36,9 @@
             }
         ?>
         </div>
-        <button type="submit" class="default-bkg-select">Дальше</button>
+        <center><button type="submit" class="default-bkg-select main-button">Перейти к конструтору</button></center>
     </form>
 </div>
-<hr>
-
-<button class="logout">Выйти из аккаунта</button>
 
 <script>
     $(".logout").click(function() {
@@ -92,6 +91,6 @@
 
         let background = $(this).serializeArray()[0].value;
         $.post("../helpers/signatures/signature_set_background.php", { background: background, access_token: $.cookie("access_token"), game: $.cookie("signatures_game") });
-        $(".main-container").load("../pages/signatures/signatures_generation.php");
+        location.reload();
     });
 </script>

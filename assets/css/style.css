@@ -994,6 +994,46 @@ table.vehicles thead tr .headerSortDown {
     font-size: 10px;
 }
 
+.signs .find-nickname {
+    padding-top: 25%;
+}
+
+.signs .main-footer {
+    margin-top: 0;
+}
+
+.signs .service-desc {
+    width: fit-content;
+    margin: 10% auto;
+}
+
+.signs .service-nav {
+    width: fit-content;
+    margin: 10% auto;
+}
+
+.sign-button {
+    border: 0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 0 15px;
+    background: #fff;
+    opacity: .7;
+    font-family: Roboto-Regular;
+    transition: all .2s;
+}
+
+.sign-button:hover {
+    opacity: 1;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.croppic-container {
+    width: fit-content;
+    margin: 0 auto;
+}
+
 .option-container {
     display: block;
     position: relative;

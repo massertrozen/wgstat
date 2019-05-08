@@ -2,7 +2,8 @@
     width: 468px;
     height: 100px;
     position: relative;
-    border: 3px solid red;
+    background: #fff;
+    border: 3px solid rgba(255,255,255,.1);
     box-sizing: content-box;
     -moz-box-sizing: content-box;
     border-radius: 2px;
