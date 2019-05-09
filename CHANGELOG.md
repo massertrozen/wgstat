@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [v.0.7] - 09.05.2019
+### Added
+- design for all signature-generator pages;
+- signature JS constructor with mobile support;
+- signatures generator;
+
 ## [v.0.6] - 17.04.2019
 ### Added
 - WG API authorization;
