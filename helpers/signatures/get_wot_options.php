@@ -151,7 +151,7 @@ if (isset($_POST["account_info"])) {
         "КПД" => $KPD, 
         "WN6" => $WN6, 
         "WN7" => $WN7, 
-        "Боёв" => $battles, 
+        "Боев" => $battles, 
         "Побед" => "{$wins_percent_rounded}%", 
         "Ср.уровень" => $avg_tier_rounded,
         "Ассист" => $avg_damage_assisted, 

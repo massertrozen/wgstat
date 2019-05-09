@@ -111,13 +111,6 @@
 }
 
 @font-face {
-    font-family: "XG-3";
-    src: url("../fonts/Arkhip_font/Arkhip_font.otf") format("opentype");
-    font-style: normal;
-    font-weight: normal;
-}
-
-@font-face {
     font-family: "XG-4";
     src: url("../fonts/Arthur-Gothic-Regular/Arthur-Gothic-Regular.otf") format("opentype");
     font-style: normal;
@@ -190,13 +183,6 @@
 @font-face {
     font-family: "XG-14";
     src: url("../fonts/EuropeExt-Italic/EuropeExt-Italic.otf") format("opentype");
-    font-style: normal;
-    font-weight: normal;
-}
-
-@font-face {
-    font-family: "XG-15";
-    src: url("../fonts/Gagalin-Regular/Gagalin-Regular.otf") format("opentype");
     font-style: normal;
     font-weight: normal;
 }
@@ -281,13 +267,6 @@
 @font-face {
     font-family: "XG-27";
     src: url("../fonts/PentaDemi-Normal/PentaDemi-Normal.otf") format("opentype");
-    font-style: normal;
-    font-weight: normal;
-}
-
-@font-face {
-    font-family: "XG-28";
-    src: url("../fonts/Sensei-Medium/Sensei-Medium.otf") format("opentype");
     font-style: normal;
     font-weight: normal;
 }
@@ -1007,21 +986,16 @@ table.vehicles thead tr .headerSortDown {
     margin-top: 0;
 }
 
-.signs .service-desc {
+.signs .service-desc, .signs .service-nav {
     width: fit-content;
-    margin: 10% auto;
-}
-
-.signs .service-nav {
-    width: fit-content;
-    margin: 10% auto;
+    margin: 5% auto;
 }
 
 .sign-button {
     border: 0;
     padding: 10px 20px;
     border-radius: 5px;
-    margin: 0 15px;
+    margin: 15px;
     background: #fff;
     opacity: .7;
     font-family: Roboto-Regular;
@@ -1096,6 +1070,24 @@ table.vehicles thead tr .headerSortDown {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+  }
+
+  .signature-container {
+    width: fit-content;
+    margin: 0 auto;
+  }
+  
+  .signature-container img {
+      display: block;
+  }
+
+  .signature-container input {
+    width: 100%;
+    font-family: Roboto-Regular;
+    background: rgba(255,255,255,.1);
+    border: 0;
+    color: #fff;
+    padding: 10px 20px;
   }
 
 /* Mobile fixes */
