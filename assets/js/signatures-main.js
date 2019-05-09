@@ -82,10 +82,15 @@ function load_signatures_page(access_token) {
 
 function switchGameTo(game) {
     $(".main-content").append("<div class='loader'><img width='50px' src='../assets/img/loader.svg'/></div>");
-    let nickname = $.cookie("nickname");
-    $.cookie("signatures_game", game, { expires: 1, path: "/signatures"});
-    $.cookie("is_game_swithed", true, { expires: 1, path: "/signatures"});
-    location.reload();
+
+    if (game === "wgstat") {
+        window.location.replace("/");
+    } else {
+        let nickname = $.cookie("nickname");
+        $.cookie("signatures_game", game, { expires: 1, path: "/signatures"});
+        $.cookie("is_game_swithed", true, { expires: 1, path: "/signatures"});
+        location.reload();
+    }
 }
 
 function resetGame() {
