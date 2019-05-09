@@ -6,7 +6,7 @@ require_once("../helpers/grabber.php");
 
 <html>
 <head>
-    <title>WGstat/signatures</title>
+    <title>WGstat | Конструктор сигнатур</title>
     <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
     <script type="text/javascript" src="../assets/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../assets/js/jquery.ui.touch-punch.min.js"></script>
@@ -16,6 +16,7 @@ require_once("../helpers/grabber.php");
     <link href="../assets/css/style.css" rel="stylesheet">
     <link href="../assets/css/croppic.css" rel="stylesheet">
     <link href="../assets/css/material-icons.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon" />
     <meta charset="utf-8">
 </head>
 <body class="signs main">
