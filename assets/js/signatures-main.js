@@ -21,7 +21,10 @@ function load_signatures_page(access_token) {
                 .done(function(response) {
                     response = JSON.parse(response);
                     if ("ok" in response) {
-                        $(".main-content").load("../pages/signatures/signatures_display.php");
+                        $.post("../helpers/signatures/get_signature.php", { access_token: $.cookie("access_token"), game: $.cookie("signatures_game") })
+                        .done(function(response) {
+                           $(".main-content").load("../pages/signatures/signatures_display.php", { signature: response, game: $.cookie("signatures_game") });
+                        });                         
                     } else if ("process" in response) {
                         let game = $.cookie("signatures_game");
 
@@ -112,10 +115,10 @@ function updateCoordinates(element) {
     element = $(element);
     let option = element.text();
     let positionTop = element.position().top;
-    var postionLeft = element.position().left;
-    
-    options[option].X = positionTop;
-    options[option].Y = postionLeft;
+    var positionLeft = element.position().left;
+
+    options[option].X = positionLeft;
+    options[option].Y = positionTop;
 }
 
 function updateSignature() {
@@ -129,7 +132,7 @@ function updateSignature() {
         let Y = options[option].Y;
 
         if (isEnabled) {
-            let signOption = "<div class='sign-option' style='font-family: " + font + "; font-size: " + fontSize + "; top: " + X + "; left: " + Y + "'>" + option + "<div>";
+            let signOption = "<div class='sign-option' style='font-family: " + font + "; font-size: " + fontSize + "; top: " + Y + "; left: " + X + "'>" + option + "<div>";
             $(".signature").append(signOption);
         }
     }

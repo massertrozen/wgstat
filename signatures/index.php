@@ -16,6 +16,7 @@ require_once("../helpers/grabber.php");
     <link href="../assets/css/style.css" rel="stylesheet">
     <link href="../assets/css/croppic.css" rel="stylesheet">
     <link href="../assets/css/material-icons.css" rel="stylesheet">
+    <meta charset="utf-8">
 </head>
 <body class="signs main">
     <noscript>To work with this service you need to swith ON your browser JavaScript.</noscript>

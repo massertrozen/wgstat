@@ -1,7 +1,6 @@
 <?php
 require_once("../config.php");
-if (isset($_POST["options"]) && isset($_POST["access_token"]) && isset($_POST["game"])) {
-    $options = serialize($_POST["options"]);
+if (isset($_POST["access_token"]) && isset($_POST["game"])) {
     $access_token = $_POST["access_token"];
     $game = $_POST["game"];
 
@@ -10,7 +9,7 @@ if (isset($_POST["options"]) && isset($_POST["access_token"]) && isset($_POST["g
     $wgn_account_id_query = mysql_query("SELECT $wgn_account_id FROM $wgn_accounts_table WHERE $wgn_access_token='$access_token'");
     $account_id = mysql_fetch_array($wgn_account_id_query)[$wgn_account_id];
 
-    mysql_query("UPDATE $sign_table SET $sign_data='$options' WHERE $sign_account_id=$account_id AND $sign_game='$game'");
+    mysql_query("UPDATE $sign_table SET $sign_data='' WHERE $sign_account_id=$account_id AND $sign_game='$game'");
 
     mysql_close();
 }
