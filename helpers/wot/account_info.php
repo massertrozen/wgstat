@@ -9,10 +9,10 @@ if (isset($_POST["search"])) {
     $account_id = $account_list_response["data"][0]["account_id"];
     
     if (isset($account_id)) {
-        mysql_connect("localhost", "root", "");
-	    mysql_select_db("wgstat");
-        mysql_query("INSERT INTO $wot_accounts_table VALUES ($account_id)");
-        mysql_close();
+        // mysql_connect("localhost", "root", "");
+	    // mysql_select_db("wgstat");
+        // mysql_query("INSERT INTO $wot_accounts_table VALUES ($account_id)");
+        // mysql_close();
 
         $account_info_response = json_decode(grab("$url_wot_account_info&account_id=$account_id"), true);
         $tanks_stat_response = json_decode(grab("$url_wot_tanks_stat&account_id=$account_id"), true);
